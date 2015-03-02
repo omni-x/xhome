@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9752e27d-a737-4488-b76d-aa2fc92e864a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{dedccae9-2da8-4220-ad6b-497baccdc8a8}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6f169cc9-f025-4a47-bd39-1547a1a9c891}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Planner_res">
+      <UniqueIdentifier>{d507a501-81d2-4e8d-b61c-44b517a8cdaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Mail_res">
+      <UniqueIdentifier>{a972c5a1-51b3-42a7-bf41-9e84b8b2e14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Tooltip_res">
+      <UniqueIdentifier>{1b59dd76-7cf3-49f1-9125-00a503a13cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\MacrosEdit_res">
+      <UniqueIdentifier>{30baedb1-89ab-4ab3-a11c-50cdf0d02368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Tasks_res">
+      <UniqueIdentifier>{9aac13b0-0a11-4caf-ad1f-afb970ad149b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shortcuts_res">
+      <UniqueIdentifier>{f6ddaa73-9c33-4a37-8e85-f230e3a23039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Gantt_res">
+      <UniqueIdentifier>{3d02c94c-6819-4f15-aac6-17358b5360b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Planner">
+      <UniqueIdentifier>{e8e374db-d4d5-4cb3-99d2-3e443b7baf82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{60552363-5fc3-49e5-abae-24bfa7403fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bars">
+      <UniqueIdentifier>{0b2ef60c-b3be-4e87-a37b-7db4e47170a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MacrosEdit">
+      <UniqueIdentifier>{329781ec-f672-42c1-9734-54bceb41bcdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mail">
+      <UniqueIdentifier>{40f87e8a-a47f-45f8-b24e-c315f85989bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tasks">
+      <UniqueIdentifier>{6e74d534-7160-45f8-b666-069d15ef8599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gantt">
+      <UniqueIdentifier>{a2100475-b818-43ba-8c31-ed5bb1bd0c78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BackStagePageInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackStagePagePrint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BCGPOrganizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BCGPOrganizerDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BCGPOrganizerView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgBanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditDialogBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditFrameDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditFrameView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainButtonsGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcePage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RibbonListButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RibbonTooltipCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\Appointment.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\AppointmentFrame.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\GotoDayDialog.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\PlannerClockIcons.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\PlannerTooltipCtrl.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\PrintTypeDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceConfirmDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceRuleDailyDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceRuleDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceRuleMonthlyDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceRuleWeeklyDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner\RecurrenceRuleYearlyDlg.cpp">
+      <Filter>Planner</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\CalendarPlannerView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\GanttView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\MacrosEditView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\MailView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\ShortcutsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\TasksView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="MacrosBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="MailBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="OutlookBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortcutsBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksBar.cpp">
+      <Filter>Bars</Filter>
+    </ClCompile>
+    <ClCompile Include="MacrosEdit\CustomEditCtrl.cpp">
+      <Filter>MacrosEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="MacrosEdit\GotoLineDlg.cpp">
+      <Filter>MacrosEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Mail\MailFrame.cpp">
+      <Filter>Mail</Filter>
+    </ClCompile>
+    <ClCompile Include="Mail\MailReportCtrl.cpp">
+      <Filter>Mail</Filter>
+    </ClCompile>
+    <ClCompile Include="GanttBar.cpp">
+      <Filter>Gantt</Filter>
+    </ClCompile>
+    <ClCompile Include="Gantt\GanttFrame.cpp">
+      <Filter>Gantt</Filter>
+    </ClCompile>
+    <ClCompile Include="Gantt\GanttTooltipCtrl.cpp">
+      <Filter>Gantt</Filter>
+    </ClCompile>
+    <ClCompile Include="Gantt\GotoDayDialog2.cpp">
+      <Filter>Gantt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BCGPOrganizer.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BackStagePageInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackStagePagePrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BCGPOrganizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BCGPOrganizerDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BCGPOrganizerView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgBanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditDialogBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditFrameDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditFrameView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainButtonsGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcePage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RibbonListButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RibbonTooltipCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\Appointment.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\AppointmentFrame.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\GotoDayDialog.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\PlannerClockIcons.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\PlannerTooltipCtrl.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\PrintTypeDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceConfirmDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceRuleDailyDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceRuleDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceRuleMonthlyDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceRuleWeeklyDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Planner\RecurrenceRuleYearlyDlg.h">
+      <Filter>Planner</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\CalendarPlannerView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\GanttView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\MacrosEditView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\MailView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\ShortcutsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\TasksView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="CalendarBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="MacrosBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="MailBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="OutlookBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortcutsBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksBar.h">
+      <Filter>Bars</Filter>
+    </ClInclude>
+    <ClInclude Include="MacrosEdit\CustomEditCtrl.h">
+      <Filter>MacrosEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="MacrosEdit\GotoLineDlg.h">
+      <Filter>MacrosEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Mail\MailFrame.h">
+      <Filter>Mail</Filter>
+    </ClInclude>
+    <ClInclude Include="Mail\MailReportCtrl.h">
+      <Filter>Mail</Filter>
+    </ClInclude>
+    <ClInclude Include="GanttBar.h">
+      <Filter>Gantt</Filter>
+    </ClInclude>
+    <ClInclude Include="Gantt\GanttFrame.h">
+      <Filter>Gantt</Filter>
+    </ClInclude>
+    <ClInclude Include="Gantt\GanttTooltipCtrl.h">
+      <Filter>Gantt</Filter>
+    </ClInclude>
+    <ClInclude Include="Gantt\GotoDayDialog2.h">
+      <Filter>Gantt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\BCGPOrganizer.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\BCGPOrganizer.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\BCGPOrganizerDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\buttons.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\category.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\category_hc.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\edit_large.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\edit_small.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\file_large.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\file_small.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\font_hc.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\HeaderPat_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\HeaderPat_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\HeaderPat_3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\HeaderPat_4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\home.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\main.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\options.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\refresh.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shortcuts_large.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shortcuts_small.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar_hc.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Planner\Clock_Clock.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\Clock_Hours.PNG">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\Clock_Minutes.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\frame.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\home_large.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\home_small.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\icons.BMP">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\prntype_1.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\prntype_2.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\prntype_3.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\prntype_4.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\ribbon_large.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\ribbon_small.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\security.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\toolbar.bmp">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\toolbar_hc.png">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Planner\users.ico">
+      <Filter>Resource Files\Planner_res</Filter>
+    </None>
+    <None Include="res\Mail\Flags.bmp">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\folders.BMP">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\frame.ico">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\header.bmp">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\icons.BMP">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\ribbon_large.png">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Mail\ribbon_small.png">
+      <Filter>Resource Files\Mail_res</Filter>
+    </None>
+    <None Include="res\Tooltip\Font.png">
+      <Filter>Resource Files\Tooltip_res</Filter>
+    </None>
+    <None Include="res\Tooltip\Main.png">
+      <Filter>Resource Files\Tooltip_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\Accessibility.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\AddDirAsSlnFolder.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\bcgpedit.xml">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\DevStudio6Editor.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\EnvironmentEvents.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\folders.bmp">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\font.bmp">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\font_hc.png">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\intellisense.bmp">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\intellisense_hc.bmp">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\MakeAddin.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\ribbon_large.png">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\ribbon_small.png">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\Utilities.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\VSDebugger.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\MacrosEdit\VSEditor.bas">
+      <Filter>Resource Files\MacrosEdit_res</Filter>
+    </None>
+    <None Include="res\Tasks\frame.ico">
+      <Filter>Resource Files\Tasks_res</Filter>
+    </None>
+    <None Include="res\Tasks\header.bmp">
+      <Filter>Resource Files\Tasks_res</Filter>
+    </None>
+    <None Include="res\Tasks\icons.bmp">
+      <Filter>Resource Files\Tasks_res</Filter>
+    </None>
+    <None Include="res\Tasks\ribbon_large.png">
+      <Filter>Resource Files\Tasks_res</Filter>
+    </None>
+    <None Include="res\Tasks\ribbon_small.png">
+      <Filter>Resource Files\Tasks_res</Filter>
+    </None>
+    <None Include="res\Shortcuts\ribbon_large.png">
+      <Filter>Resource Files\Shortcuts_res</Filter>
+    </None>
+    <None Include="res\Shortcuts\ribbon_small.png">
+      <Filter>Resource Files\Shortcuts_res</Filter>
+    </None>
+    <None Include="res\Gantt\buttons.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\complete.ico">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\file_large.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\file_small.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\frame.ico">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\home_large.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\home_large.psd">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\home_small.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\milestone.ico">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\milestone_c.ico">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\ribbon_large.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\ribbon_large.psd">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\ribbon_small.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\toolbar.bmp">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="res\Gantt\toolbar_hc.png">
+      <Filter>Resource Files\Gantt_res</Filter>
+    </None>
+    <None Include="xptheme.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="res\caption.bmp">
+      <Filter>Resource Files</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>
