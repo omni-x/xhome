@@ -1,6 +1,6 @@
 #include "xRoot.h"
 #include "../xstore/xstore.h"
-#include "xLogin.hpp"
+#include "xLogin.h"
 
 XRoot::XRoot() : login_(NULL), shopmgr_(NULL)
 {

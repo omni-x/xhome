@@ -16,8 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{E97D
 	ProjectSection(SolutionItems) = preProject
 		..\include\xCustomer.h = ..\include\xCustomer.h
 		..\include\xError.h = ..\include\xError.h
+		..\include\xMaterials.h = ..\include\xMaterials.h
 		..\include\xPre.h = ..\include\xPre.h
-		..\include\xProduct.h = ..\include\xProduct.h
 		..\include\xUser.h = ..\include\xUser.h
 	EndProjectSection
 EndProject

@@ -3,8 +3,8 @@
 
 #include "../../include/xError.h"
 #include "xlogicPre.h"
+#include "xLogin.h"
 
-class XLogin;
 class XShopMgr;
 class _xlogic_ XRoot
 {

@@ -4,15 +4,21 @@
 #include "xsqlPre.h"
 #include "../../include/xError.h"
 
+class CppSQLite3DB;
 class _xsql_ XSqlShop
 {
 public: 
-    XSqlShop(const std::string& name);
+    XSqlShop(const std::string& file);
     ~XSqlShop();
     xError createShop();
+    xError openShop();
+    void closeShop();
+    bool userExists(const std::string& name);
+    bool userCheck(const std::string& name, const std::string& pwd);
 
 private:
-    std::string name_;
+    std::string     file_;
+    CppSQLite3DB*   sqlite_;
 };
 
 #endif

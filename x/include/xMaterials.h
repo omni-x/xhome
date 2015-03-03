@@ -1,28 +1,28 @@
-#ifndef _xProduct_h__
-#define _xProduct_h__
+#ifndef _xMaterials_h__
+#define _xMaterials_h__
 
 #include "xPre.h"
 
-struct xProduct
+struct xMaterials
 {
     std::string name_;
     unsigned int id_;
 
-    xProduct() : name_(""), id_(0)
+    xMaterials() : name_(""), id_(0)
     {
 
     }
-    const xProduct& operator = (const xProduct &src)
+    const xMaterials& operator = (const xMaterials &src)
     {
         name_   = src.name_;
         id_     = src.id_;
         return *this;
     }
-    xProduct(const xProduct& src)
+    xMaterials(const xMaterials& src)
     {
         this->operator = (src);
     }
-    bool operator ==(const xProduct &other) const
+    bool operator ==(const xMaterials &other) const
     {
         if ( (name_ == other.name_) && 
              (id_ == other.id_) )
@@ -30,7 +30,7 @@ struct xProduct
         return false;
     }
 };
-typedef xProduct* lpxProduct;
-typedef std::vector<lpxProduct> lpxProductArray;
+typedef xMaterials* lpxMaterials;
+typedef std::vector<lpxMaterials> lpxMaterialsArray;
 
 #endif

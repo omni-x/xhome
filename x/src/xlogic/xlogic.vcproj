@@ -182,7 +182,11 @@
 			>
 		</File>
 		<File
-			RelativePath=".\xLogin.hpp"
+			RelativePath=".\xLogin.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xLogin.h"
 			>
 		</File>
 		<File

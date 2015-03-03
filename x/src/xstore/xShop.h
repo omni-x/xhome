@@ -13,6 +13,10 @@ public:
 
     xError install(const std::string& name);
     xError uninstall();
+    xError open(const std::string name);
+    void close();
+    bool userExists(const std::string& name);
+    bool userCheck(const std::string& name, const std::string& pwd);
 
 public:
     XSqlShop* sqlShop_;

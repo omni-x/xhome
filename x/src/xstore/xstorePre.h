@@ -3,6 +3,8 @@
 
 #include "../../include/xPre.h"
 
+#define X_FILE_EXT ".sqlite"
+
 #   if defined( XSTORE_EXPORTS )
 #       define _xstore_ __declspec(dllexport)
 #   else
