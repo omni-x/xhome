@@ -37,5 +37,6 @@
 #define _FIX_(msg) message(__FILE_AND_LINE__("FIX", msg))
 #define _XXX_(msg) message(__FILE_AND_LINE__("XXX", msg))
 
+#pragma warning(disable: 4251)
 
 #endif

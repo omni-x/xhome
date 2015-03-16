@@ -4,6 +4,8 @@
 
 #include "xsqlPre.h"
 #include "xsqlShop.h"
+#include "xsqlColor.h"
+#include "xsqlUser.h"
 
 #ifndef XSQL_EXPORTS
 #define XSQL_EXPORTS

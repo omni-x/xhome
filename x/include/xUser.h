@@ -3,13 +3,21 @@
 
 #include "xPre.h"
 
+
+enum emUserType
+{
+    kAdmin = 0, 
+    kSaleman = 1, 
+};
+
 struct xUser
 {
-    unsigned int id_;
-    std::string name_;
-    std::string pwd_;
+    unsigned int    id_;
+    std::string     name_;
+    std::string     pwd_;
+    emUserType      type_;
 
-    xUser() : name_(""), id_(0), pwd_("")
+    xUser() : name_(""), id_(0), pwd_(""), type_(kSaleman)
     {
 
     }
@@ -18,6 +26,7 @@ struct xUser
         name_   = src.name_;
         id_     = src.id_;
         pwd_    = src.pwd_;
+        type_   = src.type_;
         return *this;
     }
     xUser(const xUser& src)
@@ -28,7 +37,8 @@ struct xUser
     {
         if ( (name_ == other.name_) && 
              (id_ == other.id_) && 
-             (pwd_ == other.pwd_) )
+             (pwd_ == other.pwd_) && 
+             (type_ == other.type_) )
             return true;
         return false;
     }

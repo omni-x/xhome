@@ -3,7 +3,6 @@
 
 #include "../../include/xError.h"
 #include "xlogicPre.h"
-#include "xLogin.h"
 
 class XShopMgr;
 class _xlogic_ XRoot
@@ -16,18 +15,11 @@ public:
     void init();
     void uninit();
 
-    XLogin*     getLogin();
     XShopMgr*   getShopMgr();
 
 private:
-    XLogin*     login_;
     XShopMgr*   shopmgr_;
 };
-
-inline XLogin* XRoot::getLogin()
-{
-    return login_;
-}
 
 inline XShopMgr* XRoot::getShopMgr()
 {

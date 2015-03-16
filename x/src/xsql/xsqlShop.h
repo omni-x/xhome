@@ -3,6 +3,8 @@
 
 #include "xsqlPre.h"
 #include "../../include/xError.h"
+#include "xsqlUser.h"
+#include "xsqlColor.h"
 
 class CppSQLite3DB;
 class _xsql_ XSqlShop
@@ -13,12 +15,25 @@ public:
     xError createShop();
     xError openShop();
     void closeShop();
-    bool userExists(const std::string& name);
-    bool userCheck(const std::string& name, const std::string& pwd);
+
+    XSqlUser* getSqlUser();
+    XSqlColor* getSqlColor();
 
 private:
     std::string     file_;
     CppSQLite3DB*   sqlite_;
+    XSqlUser*       user_;
+    XSqlColor*      color_;
 };
+
+inline XSqlUser* XSqlShop::getSqlUser()
+{
+    return user_;
+}
+
+inline XSqlColor* XSqlShop::getSqlColor()
+{
+    return color_;
+}
 
 #endif

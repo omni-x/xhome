@@ -3,8 +3,8 @@
 
 #include "../../include/xError.h"
 #include "xstorePre.h"
+#include "xShop.h"
 
-class XShop;
 class _xstore_ XShopMgr
 {
 public:
@@ -13,9 +13,15 @@ public:
 
     xError init();
     xError uninit();
-    int getShopCount();
+    unsigned int getShopCount();
     XShop* newShop();
     void delShop(XShop* shop);
+
+protected:
+    bool scanShop();
+
+private:
+    XShopArray  arrShop_;
 };
 
 #endif

@@ -207,6 +207,14 @@
 			>
 		</File>
 		<File
+			RelativePath=".\xsqlColor.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlColor.h"
+			>
+		</File>
+		<File
 			RelativePath=".\xsqlDef.h"
 			>
 		</File>
@@ -220,6 +228,14 @@
 		</File>
 		<File
 			RelativePath=".\xsqlShop.h"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlUser.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlUser.h"
 			>
 		</File>
 	</Files>
