@@ -158,6 +158,14 @@ BOOL COutlookBar::Create (LPCTSTR lpszCaption, CWnd* pParentWnd,
 		return FALSE;      // fail to create
 	}
 	pShortcutsBarContainer->AddTab (&m_wndColorBlockBar, c_ViewNames[e_ModeColorBlock], 1, FALSE);
+
+	if (!m_wndOrderBar.Create (this, IDC_ORDER_BAR))
+	{
+		TRACE0("Failed to create gantt tab\n");
+		return FALSE;      // fail to create
+	}
+	pShortcutsBarContainer->AddTab (&m_wndOrderBar, c_ViewNames[e_ModeOrder], 1, FALSE);
+
 	
 
 	SetButtonsFont (&globalData.fontBold);

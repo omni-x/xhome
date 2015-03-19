@@ -137,6 +137,7 @@ protected:
 
     CBCGPRibbonCategory* AddTab_Customer ();    //联系人
 	CBCGPRibbonCategory* AddTab_ColorBlock ();  //色块
+	CBCGPRibbonCategory* AddTab_Order ();		//订单
 
 protected:
 	CBCGPRibbonBar			m_wndRibbonBar;	// Ribbon control bar

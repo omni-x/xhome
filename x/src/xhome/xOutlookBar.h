@@ -27,7 +27,7 @@
 #include "GanttBar.h"
 #include "./Customer/xCustomerBar.h"
 #include "./xshop/xColorBlockBar.h"
-
+#include "./xorder/xOrderBar.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // COutlookBar view
@@ -108,6 +108,7 @@ protected:
 	CGanttBar				m_wndGanttBar;
     CCustomerBar            m_wndCustomerBar;
 	CColorBlockBar			m_wndColorBlockBar;
+	XOrderBar				m_wndOrderBar;
 };
 
 /////////////////////////////////////////////////////////////////////////////

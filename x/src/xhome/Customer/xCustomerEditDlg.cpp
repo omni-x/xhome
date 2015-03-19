@@ -49,10 +49,10 @@ BOOL XCustomerEditDlg::OnInitDialog()
     UpdateUI(TRUE);
     if ( m_bNewCustomer )
     {
-        ((CButton*)GetDlgItem(IDOK))->SetWindowText("创建");
+        ((CButton*)GetDlgItem(ID_OK))->SetWindowText("创建");
     }
     else
-        ((CButton*)GetDlgItem(IDOK))->SetWindowText("更新");
+        ((CButton*)GetDlgItem(ID_OK))->SetWindowText("更新");
 
     return TRUE;
 }
