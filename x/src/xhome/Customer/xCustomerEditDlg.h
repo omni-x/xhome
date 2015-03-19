@@ -2,7 +2,7 @@
 #include "afxwin.h"
 #include "../resource.h"
 #include "../../../include/xCustomer.h"
-#include "CustomerMgr.h"
+#include "xCustomerMgr.h"
 
 class XCustomerEditDlg : public CBCGPDialog
 {
@@ -13,7 +13,7 @@ public:
 	virtual ~XCustomerEditDlg();
 
 // 对话框数据
-	enum { IDD = IDD_CUSTOMER_EDIT };
+	enum { IDD = IDD_X_CUSTOMER_EDIT };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持

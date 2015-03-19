@@ -6,16 +6,16 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "./CustomerReportCtrl.h"
+#include "./xCustomerReportCtrl.h"
 #include "../../../include/xCustomer.h"
-#include "CustomerMgr.h"
+#include "xCustomerMgr.h"
 
-// CCustomerView
-class CCustomerView : public CBCGPReportView
+// XCustomerView
+class XCustomerView : public CBCGPReportView
 {
 protected: // create from serialization only
-	CCustomerView();
-	DECLARE_DYNCREATE(CCustomerView)
+	XCustomerView();
+	DECLARE_DYNCREATE(XCustomerView)
 
 // Attributes
 public:
@@ -43,7 +43,7 @@ protected:
 
     // Implementation
 public:
-	virtual ~CCustomerView();
+	virtual ~XCustomerView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -71,7 +71,7 @@ protected:
 };
 
 #ifndef _DEBUG  
-inline XHomeDoc* CCustomerView::GetDocument()
+inline XHomeDoc* XCustomerView::GetDocument()
    { return (XHomeDoc*)m_pDocument; }
 #endif
 

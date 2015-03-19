@@ -11,7 +11,7 @@ public:
 	virtual ~XLoginDlg();
 
 // 对话框数据
-	enum { IDD = IDD_DIALOG_LOGIN };
+	enum { IDD = IDD_X_DIALOG_LOGIN };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持

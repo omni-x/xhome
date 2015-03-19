@@ -4,8 +4,8 @@
 #include "../xHomeDoc.h"
 #include "../xMainfrm.h"
 
-#include "CustomerView.h"
-#include "CustomerEditDlg.h"
+#include "xCustomerView.h"
+#include "xCustomerEditDlg.h"
 
 
 #ifdef _DEBUG
@@ -28,12 +28,12 @@ enum
 
 
 //////////////////////////////////////////////////////////////////////////
-// CCustomerView
+// XCustomerView
 
-IMPLEMENT_DYNCREATE(CCustomerView, CBCGPReportView)
+IMPLEMENT_DYNCREATE(XCustomerView, CBCGPReportView)
 
-BEGIN_MESSAGE_MAP(CCustomerView, CBCGPReportView)
-	//{{AFX_MSG_MAP(CCustomerView)
+BEGIN_MESSAGE_MAP(XCustomerView, CBCGPReportView)
+	//{{AFX_MSG_MAP(XCustomerView)
 	ON_WM_CREATE()
 	ON_WM_DESTROY()
 	ON_COMMAND(ID_RIBBON_NEW,     OnNew)
@@ -50,22 +50,22 @@ BEGIN_MESSAGE_MAP(CCustomerView, CBCGPReportView)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CCustomerView construction/destruction
+// XCustomerView construction/destruction
 
-CCustomerView::CCustomerView()
+XCustomerView::XCustomerView()
 {
 	m_pMgr = new CCustomerMgr;
 
 }
 
-CCustomerView::~CCustomerView()
+XCustomerView::~XCustomerView()
 {
     if( m_pMgr != NULL )
         delete m_pMgr;
     m_pMgr = NULL;
 }
 
-BOOL CCustomerView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL XCustomerView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
@@ -74,22 +74,22 @@ BOOL CCustomerView::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CCustomerView drawing
+// XCustomerView drawing
 
-void CCustomerView::OnDraw(CDC* pDC)
+void XCustomerView::OnDraw(CDC* pDC)
 {
 	CBCGPReportView::OnDraw (pDC);
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CCustomerView printing
+// XCustomerView printing
 
-void CCustomerView::OnFilePrintPreview() 
+void XCustomerView::OnFilePrintPreview() 
 {
 	BCGPPrintPreview (this);
 }
 
-BOOL CCustomerView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL XCustomerView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 #ifdef _BCGSUITE_INC_
 	return DoPreparePrinting(pInfo);
@@ -99,20 +99,20 @@ BOOL CCustomerView::OnPreparePrinting(CPrintInfo* pInfo)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CCustomerView diagnostics
+// XCustomerView diagnostics
 
 #ifdef _DEBUG
-void CCustomerView::AssertValid() const
+void XCustomerView::AssertValid() const
 {
 	CBCGPReportView::AssertValid();
 }
 
-void CCustomerView::Dump(CDumpContext& dc) const
+void XCustomerView::Dump(CDumpContext& dc) const
 {
 	CBCGPReportView::Dump(dc);
 }
 
-XHomeDoc* CCustomerView::GetDocument() // non-debug version is inline
+XHomeDoc* XCustomerView::GetDocument() // non-debug version is inline
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(XHomeDoc)));
 	return (XHomeDoc*)m_pDocument;
@@ -120,7 +120,7 @@ XHomeDoc* CCustomerView::GetDocument() // non-debug version is inline
 #endif //_DEBUG
 
 
-void CCustomerView::OnContextMenu(CWnd*, CPoint point)
+void XCustomerView::OnContextMenu(CWnd*, CPoint point)
 {
 	if (point == CPoint (-1, -1))
 	{
@@ -138,14 +138,14 @@ void CCustomerView::OnContextMenu(CWnd*, CPoint point)
 	theApp.ShowPopupMenu (IDR_MAIL_MENU, point, this);
 }
 
-void CCustomerView::OnInitialUpdate() 
+void XCustomerView::OnInitialUpdate() 
 {
 	CBCGPReportView::OnInitialUpdate();
 }
 
 
 
-int CCustomerView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+int XCustomerView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CBCGPReportView::OnCreate(lpCreateStruct) == -1)
 		return -1;
@@ -157,7 +157,7 @@ int CCustomerView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void CCustomerView::OnDestroy() 
+void XCustomerView::OnDestroy() 
 {
 	CBCGPReportCtrl* pReportCtrl = GetReportCtrl ();
 	ASSERT_VALID (pReportCtrl);
@@ -167,7 +167,7 @@ void CCustomerView::OnDestroy()
 	CBCGPReportView::OnDestroy();
 }
 
-LRESULT CCustomerView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT XCustomerView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
     if(message == BCGM_GRID_ITEM_DBLCLICK)
     {
@@ -192,7 +192,7 @@ LRESULT CCustomerView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
     return CBCGPReportView::WindowProc(message,wParam,lParam);
 }
 
-BOOL CCustomerView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
+BOOL XCustomerView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
 {
 	NMHDR* pNMHDR = (NMHDR*)(lParam);
 	if (pNMHDR != NULL && pNMHDR->code == BCGPGN_SELCHANGED)
@@ -204,7 +204,7 @@ BOOL CCustomerView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 	return CBCGPReportView::OnNotify(wParam, lParam, pResult);
 }
 
-void CCustomerView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
+void XCustomerView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
 	CBCGPReportView::OnActivateView(bActivate, pActivateView, pDeactiveView);
 
@@ -214,34 +214,34 @@ void CCustomerView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* 
 	}
 }
 
-void CCustomerView::OnNew()
+void XCustomerView::OnNew()
 {
     xCustomer customer;
     XCustomerEditDlg dlg(customer, true);
     dlg.DoModal();
 }
 
-void CCustomerView::OnDel()
+void XCustomerView::OnDel()
 {
 
 }
 
-void CCustomerView::OnFind()
+void XCustomerView::OnFind()
 {
     AfxMessageBox("OnFind");
 }
 
-void CCustomerView::OnImport()
+void XCustomerView::OnImport()
 {
     AfxMessageBox("OnImport");
 }
 
-void CCustomerView::OnExport()
+void XCustomerView::OnExport()
 {
     AfxMessageBox("OnExport");
 }
 
-void CCustomerView::FillData()
+void XCustomerView::FillData()
 {
     CBCGPReportCtrl* pReportCtrl = GetReportCtrl ();
     ASSERT_VALID (pReportCtrl);
@@ -265,7 +265,7 @@ void CCustomerView::FillData()
     }
 }
 
-void CCustomerView::InitGridCtrl()
+void XCustomerView::InitGridCtrl()
 {
     CBCGPReportCtrl* pReportCtrl = GetReportCtrl ();
     ASSERT_VALID (pReportCtrl);

@@ -43,8 +43,7 @@ bool XSqlColor::modifyColor(const xColorCard& color)
 }
 
 bool XSqlColor::queryColor(lpxColorCardArray& arrColor)
-{
-    
+{   
     CppSQLite3Buffer bufSQL;
     bufSQL.format(X_SQL_COLOR_QUERY_ALL);
     CppSQLite3Query q = sqlite_->execQuery(bufSQL);

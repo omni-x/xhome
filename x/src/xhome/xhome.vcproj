@@ -3205,43 +3205,43 @@
 			Name="xcustomer"
 			>
 			<File
-				RelativePath=".\Customer\CustomerBar.cpp"
+				RelativePath=".\Customer\xCustomerBar.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerBar.h"
+				RelativePath=".\Customer\xCustomerBar.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerEditDlg.cpp"
+				RelativePath=".\Customer\xCustomerEditDlg.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerEditDlg.h"
+				RelativePath=".\Customer\xCustomerEditDlg.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerMgr.cpp"
+				RelativePath=".\Customer\xCustomerMgr.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerMgr.h"
+				RelativePath=".\Customer\xCustomerMgr.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerReportCtrl.cpp"
+				RelativePath=".\Customer\xCustomerReportCtrl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerReportCtrl.h"
+				RelativePath=".\Customer\xCustomerReportCtrl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerView.cpp"
+				RelativePath=".\Customer\xCustomerView.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\CustomerView.h"
+				RelativePath=".\Customer\xCustomerView.h"
 				>
 			</File>
 		</Filter>
@@ -3266,18 +3266,6 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="xstore"
-			>
-			<File
-				RelativePath=".\xStore\xHomeNewStoreDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\xStore\xHomeNewStoreDlg.h"
-				>
-			</File>
-		</Filter>
-		<Filter
 			Name="xshop"
 			>
 			<File
@@ -3294,6 +3282,14 @@
 			</File>
 			<File
 				RelativePath=".\xshop\xColorBlockView.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xNewShopDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xNewShopDlg.h"
 				>
 			</File>
 		</Filter>
@@ -3330,19 +3326,19 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Planner\buttons.png"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Mail\buttons.png"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Planner\file_large.png"
+			RelativePath=".\res\Planner\buttons.png"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Mail\file_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Planner\file_large.png"
 			>
 		</File>
 		<File

@@ -6,6 +6,7 @@
 #include "xsqlUser.h"
 #include "xsqlColor.h"
 #include "xsqlOrder.h"
+#include "xsqlMaterial.h"
 
 class CppSQLite3DB;
 class _xsql_ XSqlShop
@@ -20,6 +21,7 @@ public:
     XSqlUser* getSqlUser();
     XSqlColor* getSqlColor();
     XSqlOrder*  getSqlOrder();
+    XSqlMaterial* getSqlMaterial();
 
 protected:
     bool createShopTable();
@@ -31,6 +33,7 @@ private:
     XSqlUser*       user_;
     XSqlColor*      color_;
     XSqlOrder*      order_;
+    XSqlMaterial*   material_;
 };
 
 inline XSqlUser* XSqlShop::getSqlUser()
@@ -47,5 +50,11 @@ inline XSqlOrder* XSqlShop::getSqlOrder()
 {
     return order_;
 }
+
+inline XSqlMaterial* XSqlShop::getSqlMaterial()
+{
+    return material_;
+}
+
 
 #endif

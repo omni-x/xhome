@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "CustomerMgr.h"
+#include "xCustomerMgr.h"
 
 class __FindGroupByID
 {  

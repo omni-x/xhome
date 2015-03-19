@@ -198,9 +198,12 @@
 #define IDD_OMNICONTACTSEIDTDLG         285
 #define IDD_CUSTOMEREIDTDLG             285
 #define IDD_CUSTOMER_EDIT               285
+#define IDD_X_CUSTOMER_EDIT             285
 #define IDD_DIALOG_LOGIN                286
+#define IDD_X_DIALOG_LOGIN              286
 #define IDD_DIALOG1                     287
 #define IDD_DIALOG_STORE                287
+#define IDD_X_DIALOG_STORE              287
 #define IDC_APP_EDIT_DATE_END           1041
 #define IDC_APP_EDIT_DATE_START         1042
 #define IDC_APP_EDIT_DATETIME_END_STATIC 1043

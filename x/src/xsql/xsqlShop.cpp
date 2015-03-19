@@ -22,10 +22,12 @@ XSqlShop::XSqlShop(const std::string& file) : file_(file)
     user_ = new XSqlUser(sqlite_);
     color_ = new XSqlColor(sqlite_);
     order_ = new XSqlOrder(sqlite_);
+    material_ = new XSqlMaterial(sqlite_);
 }
 
 XSqlShop::~XSqlShop()
 {
+    SAFE_DELETE(material_);
     SAFE_DELETE(user_);
     SAFE_DELETE(color_);
     SAFE_DELETE(order_);
@@ -42,6 +44,9 @@ xError XSqlShop::createShop()
     if ( !createShopTable() )
         return x_Failure;
 
+    if ( !createDefaultData() )
+        return x_Failure;
+
     return x_NoErr;
 }
 
@@ -51,6 +56,7 @@ bool XSqlShop::createShopTable()
     sqlite_->execDML(X_SQL_CUSTOMER_CREATE);        // 表-客户
     sqlite_->execDML(X_SQL_CUSTOMERGROUP_CREATE);   // 表-客户分组
     sqlite_->execDML(X_SQL_MATERIALS_CREATE);       // 表-材料
+    sqlite_->execDML(X_SQL_USEOFMATERIALS_CREATE);  // 表-用料
     sqlite_->execDML(X_SQL_COLOR_CREATE);           // 表-色卡
 
     sqlite_->execDML(X_SQL_ORDER_CREATE);           // 表-大区域

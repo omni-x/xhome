@@ -2,16 +2,16 @@
 #include "afxwin.h"
 #include "../resource.h"
 
-class CNewStoreDlg : public CBCGPDialog
+class XNewShopDlg : public CBCGPDialog
 {
-	DECLARE_DYNAMIC(CNewStoreDlg)
+	DECLARE_DYNAMIC(XNewShopDlg)
 
 public:
-	CNewStoreDlg(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CNewStoreDlg();
+	XNewShopDlg(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~XNewShopDlg();
 
 // 对话框数据
-	enum { IDD = IDD_DIALOG_STORE };
+	enum { IDD = IDD_X_DIALOG_STORE };
 
 public:
     CString GetName(){return m_strName;}

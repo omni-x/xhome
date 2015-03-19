@@ -25,7 +25,7 @@
 #include "TasksBar.h"
 #include "MacrosBar.h"
 #include "GanttBar.h"
-#include "./Customer/CustomerBar.h"
+#include "./Customer/xCustomerBar.h"
 #include "./xshop/xColorBlockBar.h"
 
 

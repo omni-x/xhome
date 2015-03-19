@@ -40,7 +40,17 @@
     "create table materials( id integer primary key autoincrement, name nvarchar(32), color integer, weight double)"
 #define X_SQL_MATERIALS_INSERT_XXX  \
     "insert into materials(name, color, weight) values('%s', '%d', '%d')"
+#define X_SQL_MATERIALS_UPDATE_WHERE_ID   \
+    "update materials set name = '%s', color = %d, weight = %d, where id = %d"
+#define X_SQL_MATERIALS_UPDATE_WEIGHT_WHERE_ID   \
+    "update materials set weight = %d, where id = %d"
+#define X_SQL_MATERIALS_DELETE_WHERE_ID   \
+    "delete from materials where id = %d"
+#define X_SQL_MATERIALS_QUERY_ALL   \
+    "select * from materials"
 
+#define X_SQL_USEOFMATERIALS_CREATE      \
+    "create table useofmaterial( id integer primary key autoincrement, material integer, weight double)"
 
 
 #define X_SQL_ORDER_CREATE  \

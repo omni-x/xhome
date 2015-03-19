@@ -219,6 +219,14 @@
 			>
 		</File>
 		<File
+			RelativePath=".\xsqlMaterial.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlMaterial.h"
+			>
+		</File>
+		<File
 			RelativePath=".\xsqlOrder.cpp"
 			>
 		</File>

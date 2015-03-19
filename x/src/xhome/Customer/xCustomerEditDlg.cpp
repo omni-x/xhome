@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "CustomerEditDlg.h"
+#include "xCustomerEditDlg.h"
 
 
 // XCustomerEditDlg ¶Ô»°¿ò

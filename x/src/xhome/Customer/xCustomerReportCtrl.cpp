@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "../xHome.h"
-#include "./CustomerReportCtrl.h"
+#include "./xCustomerReportCtrl.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

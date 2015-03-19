@@ -1,5 +1,5 @@
-#ifndef _CColorBlockView_H__
-#define _CColorBlockView_H__
+#ifndef _XColorBlockView_H__
+#define _XColorBlockView_H__
 
 #if _MSC_VER > 1000
 #pragma once
@@ -25,11 +25,11 @@ struct ColorBlock
 
 typedef std::vector<ColorBlock*> ColorBlockArray;
 
-class CColorBlockView : public CView
+class XColorBlockView : public CView
 {
 protected: // create from serialization only
-	CColorBlockView();
-	DECLARE_DYNCREATE(CColorBlockView)
+	XColorBlockView();
+	DECLARE_DYNCREATE(XColorBlockView)
 
 	// Attributes
 public:
@@ -60,7 +60,7 @@ protected:
 
 	// Implementation
 public:
-	virtual ~CColorBlockView();
+	virtual ~XColorBlockView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -94,7 +94,7 @@ protected:
 };
 
 #ifndef _DEBUG  
-inline XHomeDoc* CColorBlockView::GetDocument()
+inline XHomeDoc* XColorBlockView::GetDocument()
 { return (XHomeDoc*)m_pDocument; }
 #endif
 

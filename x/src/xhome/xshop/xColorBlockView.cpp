@@ -18,9 +18,9 @@ static char THIS_FILE[] = __FILE__;
 //////////////////////////////////////////////////////////////////////////
 // CCustomerView
 
-IMPLEMENT_DYNCREATE(CColorBlockView, CView)
+IMPLEMENT_DYNCREATE(XColorBlockView, CView)
 
-BEGIN_MESSAGE_MAP(CColorBlockView, CView)
+BEGIN_MESSAGE_MAP(XColorBlockView, CView)
 	ON_WM_ERASEBKGND()
 	ON_WM_CREATE()
 	ON_WM_DESTROY()
@@ -40,17 +40,17 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView construction/destruction
 
-CColorBlockView::CColorBlockView()
+XColorBlockView::XColorBlockView()
 {
 	m_bCalcPos = FALSE;
 	m_pHittest = NULL;
 }
 
-CColorBlockView::~CColorBlockView()
+XColorBlockView::~XColorBlockView()
 {
 }
 
-BOOL CColorBlockView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL XColorBlockView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Modify the Window class CViewor styles here by modifying
 	//  the CREATESTRUCT cs
@@ -61,7 +61,7 @@ BOOL CColorBlockView::PreCreateWindow(CREATESTRUCT& cs)
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView drawing
 
-void CColorBlockView::OnDraw(CDC* pDC)
+void XColorBlockView::OnDraw(CDC* pDC)
 {
 	if( m_bCalcPos )
 		CalcPos();
@@ -126,12 +126,12 @@ void CColorBlockView::OnDraw(CDC* pDC)
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView printing
 
-void CColorBlockView::OnFilePrintPreview() 
+void XColorBlockView::OnFilePrintPreview() 
 {
 	BCGPPrintPreview (this);
 }
 
-BOOL CColorBlockView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL XColorBlockView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 #ifdef _BCGSUITE_INC_
 	return DoPreparePrinting(pInfo);
@@ -144,17 +144,17 @@ BOOL CColorBlockView::OnPreparePrinting(CPrintInfo* pInfo)
 // CCustomerView diagnostics
 
 #ifdef _DEBUG
-void CColorBlockView::AssertValid() const
+void XColorBlockView::AssertValid() const
 {
 	CView::AssertValid();
 }
 
-void CColorBlockView::Dump(CDumpContext& dc) const
+void XColorBlockView::Dump(CDumpContext& dc) const
 {
 	CView::Dump(dc);
 }
 
-XHomeDoc* CColorBlockView::GetDocument() // non-debug version is inline
+XHomeDoc* XColorBlockView::GetDocument() // non-debug version is inline
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(XHomeDoc)));
 	return (XHomeDoc*)m_pDocument;
@@ -162,14 +162,14 @@ XHomeDoc* CColorBlockView::GetDocument() // non-debug version is inline
 #endif //_DEBUG
 
 
-void CColorBlockView::OnInitialUpdate() 
+void XColorBlockView::OnInitialUpdate() 
 {
 	CView::OnInitialUpdate();
 }
 
 
 
-int CColorBlockView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+int XColorBlockView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CView::OnCreate(lpCreateStruct) == -1)
 		return -1;
@@ -191,14 +191,14 @@ int CColorBlockView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void CColorBlockView::OnDestroy() 
+void XColorBlockView::OnDestroy() 
 {
 	
 
 	CView::OnDestroy();
 }
 
-void CColorBlockView::OnMouseMove(UINT nFlags, CPoint point)
+void XColorBlockView::OnMouseMove(UINT nFlags, CPoint point)
 {
 	ColorBlock* pHit = Hittest(point);
 	if( pHit != NULL && m_pHittest != pHit )
@@ -214,7 +214,7 @@ void CColorBlockView::OnMouseMove(UINT nFlags, CPoint point)
 	CView::OnMouseMove(nFlags,point);
 }
 
-void CColorBlockView::OnLButtonDown(UINT nFlags, CPoint point)
+void XColorBlockView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	ColorBlockArray::iterator itor = m_arrColor.begin();
 	while(itor != m_arrColor.end())
@@ -227,7 +227,7 @@ void CColorBlockView::OnLButtonDown(UINT nFlags, CPoint point)
 	CView::OnLButtonDown(nFlags,point);
 }
 
-void CColorBlockView::OnLButtonUp(UINT nFlags, CPoint point)
+void XColorBlockView::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	ColorBlock* pHit = Hittest(point);
 	if( pHit != NULL  )
@@ -241,7 +241,7 @@ void CColorBlockView::OnLButtonUp(UINT nFlags, CPoint point)
 	CView::OnLButtonUp(nFlags,point);
 }
 
-void CColorBlockView::OnLButtonDblClk(UINT nFlags, CPoint point)
+void XColorBlockView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
     ColorBlock* pHit = Hittest(point);
     if( pHit != NULL  )
@@ -256,13 +256,13 @@ void CColorBlockView::OnLButtonDblClk(UINT nFlags, CPoint point)
     CView::OnLButtonDblClk(nFlags,point);
 }
 
-LRESULT CColorBlockView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT XColorBlockView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	
 	return CView::WindowProc(message,wParam,lParam);
 }
 
-BOOL CColorBlockView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
+BOOL XColorBlockView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
 {
 	NMHDR* pNMHDR = (NMHDR*)(lParam);
 	if (pNMHDR != NULL && pNMHDR->code == BCGPGN_SELCHANGED)
@@ -274,7 +274,7 @@ BOOL CColorBlockView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 	return CView::OnNotify(wParam, lParam, pResult);
 }
 
-void CColorBlockView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
+void XColorBlockView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
 	CView::OnActivateView(bActivate, pActivateView, pDeactiveView);
 
@@ -284,42 +284,42 @@ void CColorBlockView::OnActivateView(BOOL bActivate, CView* pActivateView, CView
 	}
 }
 
-void CColorBlockView::OnClickBlock(ColorBlock* pBlock)
+void XColorBlockView::OnClickBlock(ColorBlock* pBlock)
 {
     UNREFERENCED_PARAMETER(pBlock);
 }
 
-void CColorBlockView::OnDBClickBlock(ColorBlock* pBlock)
+void XColorBlockView::OnDBClickBlock(ColorBlock* pBlock)
 {
     UNREFERENCED_PARAMETER(pBlock);
 }
 
-void CColorBlockView::OnNew()
+void XColorBlockView::OnNew()
 {
 
 }
 
-void CColorBlockView::OnDel()
+void XColorBlockView::OnDel()
 {
 
 }
 
-void CColorBlockView::OnFind()
+void XColorBlockView::OnFind()
 {
 	AfxMessageBox("OnFind");
 }
 
-void CColorBlockView::OnImport()
+void XColorBlockView::OnImport()
 {
 	AfxMessageBox("OnImport");
 }
 
-void CColorBlockView::OnExport()
+void XColorBlockView::OnExport()
 {
 	AfxMessageBox("OnExport");
 }
 
-ColorBlock* CColorBlockView::Add(unsigned int iID,DWORD dwColor)
+ColorBlock* XColorBlockView::Add(unsigned int iID,DWORD dwColor)
 {
 	ColorBlock* pTemp = Find(iID);
 	if( pTemp == NULL )
@@ -344,7 +344,7 @@ ColorBlock* CColorBlockView::Add(unsigned int iID,DWORD dwColor)
 	}
 }
 
-BOOL CColorBlockView::Del(unsigned int iID)
+BOOL XColorBlockView::Del(unsigned int iID)
 {
 	ColorBlockArray::iterator itor = m_arrColor.begin();
 	while(itor != m_arrColor.end())
@@ -367,7 +367,7 @@ BOOL CColorBlockView::Del(unsigned int iID)
 	return FALSE;
 }
 
-void CColorBlockView::Clear()
+void XColorBlockView::Clear()
 {
 	ColorBlockArray::iterator itor = m_arrColor.begin();
 	while(itor != m_arrColor.end())
@@ -383,7 +383,7 @@ void CColorBlockView::Clear()
 	m_pHittest = NULL;
 }
 
-ColorBlock* CColorBlockView::Find(unsigned int iID)
+ColorBlock* XColorBlockView::Find(unsigned int iID)
 {
 	ColorBlockArray::iterator itor = m_arrColor.begin();
 	while(itor != m_arrColor.end())
@@ -397,7 +397,7 @@ ColorBlock* CColorBlockView::Find(unsigned int iID)
 	return NULL;
 }
 
-ColorBlock* CColorBlockView::GetCurSel()
+ColorBlock* XColorBlockView::GetCurSel()
 {
     ColorBlockArray::iterator itor = m_arrColor.begin();
     while(itor != m_arrColor.end())
@@ -411,7 +411,7 @@ ColorBlock* CColorBlockView::GetCurSel()
     return NULL;
 }
 
-void CColorBlockView::CalcPos()
+void XColorBlockView::CalcPos()
 {
 	if( !m_bCalcPos )
 		return;
@@ -468,7 +468,7 @@ void CColorBlockView::CalcPos()
 	}
 }
 
-ColorBlock* CColorBlockView::Hittest(CPoint point)
+ColorBlock* XColorBlockView::Hittest(CPoint point)
 {
 	ColorBlockArray::iterator itor = m_arrColor.begin();
 	while(itor != m_arrColor.end())
@@ -482,7 +482,7 @@ ColorBlock* CColorBlockView::Hittest(CPoint point)
 	return NULL;
 }
 
-void CColorBlockView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+void XColorBlockView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
 	CView::OnVScroll(nSBCode,nPos,pScrollBar);
 
@@ -545,13 +545,13 @@ void CColorBlockView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     Invalidate();
 }
 
-BOOL CColorBlockView::OnEraseBkgnd(CDC* pDC)
+BOOL XColorBlockView::OnEraseBkgnd(CDC* pDC)
 {
     pDC->SetBkMode(TRANSPARENT);
     return TRUE;
 }
 
-BOOL CColorBlockView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+BOOL XColorBlockView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
     if(zDelta<0)
         SendMessage(WM_VSCROLL,SB_PAGEDOWN,0);
