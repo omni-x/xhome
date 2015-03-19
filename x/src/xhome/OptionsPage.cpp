@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "xHome.h"
 #include "OptionsPage.h"
-#include "MainFrm.h"
+#include "xMainfrm.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

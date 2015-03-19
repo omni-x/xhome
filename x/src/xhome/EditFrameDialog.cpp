@@ -18,7 +18,7 @@
 #include "EditFrameDialog.h"
 #include "EditFrameView.h"
 
-#include "mainfrm.h"
+#include "xMainfrm.h"
 
 #include "keys.h"
 

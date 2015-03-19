@@ -37,7 +37,7 @@
 
 #include <BCGCBProInc.h>			// BCGControlBar Pro
 
-#include "GlobalData.h"
+#include "./Common/XHomeCommonDef.h "
 
 #pragma warning (disable : 4146)
 

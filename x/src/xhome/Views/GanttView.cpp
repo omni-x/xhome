@@ -17,7 +17,7 @@
 #include "../xHome.h"
 #include "../xHomeDoc.h"
 
-#include "../MainFrm.h"
+#include "../xMainfrm.h"
 
 #include "GanttView.h"
 #include "../Gantt/GanttFrame.h"
@@ -421,7 +421,7 @@ void CGanttView::OnDestroy ()
 void CGanttView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeGantt)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeGantt)
 	{
 		return;
 	}

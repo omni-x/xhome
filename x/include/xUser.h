@@ -21,6 +21,16 @@ struct xUser
     {
 
     }
+    xUser(const std::string& name, const std::string& pwd, emUserType etype)
+        : id_(0), name_(name), pwd_(pwd), type_(etype)
+    {
+
+    }
+    xUser(unsigned int id, const std::string& name, const std::string& pwd, emUserType etype)
+        : id_(id), name_(name), pwd_(pwd), type_(etype)
+    {
+
+    }
     const xUser& operator = (const xUser &src)
     {
         name_   = src.name_;

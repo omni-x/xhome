@@ -10,7 +10,7 @@
 // of the accompanying license agreement.
 //*******************************************************************************
 //
-// MainFrm.h : interface of the CMainFrame class
+// xMainfrm.h : interface of the CMainFrame class
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -21,7 +21,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "OutlookBar.h"
+#include "xOutlookBar.h"
 #include "OutputBar.h"
 
 class CMainFrame : public CBCGPFrameWnd
@@ -127,17 +127,20 @@ protected:
 	void ShowOptions (int nPage);
 	void SetKeys ();
 
-	void AddMainCategory ();
-	CBCGPRibbonCategory* AddTab_Shortcuts ();
-	CBCGPRibbonCategory* AddTab_Mail ();
-	CBCGPRibbonCategory* AddTab_Calendar ();
-	CBCGPRibbonCategory* AddTab_Tasks ();
-	CBCGPRibbonCategory* AddTab_Macros ();
-	CBCGPRibbonCategory* AddTab_Gantt ();
+	void AddMainCategory ();                    //文件
+	CBCGPRibbonCategory* AddTab_Shortcuts ();   //主页
+	CBCGPRibbonCategory* AddTab_Mail ();        //邮件
+	CBCGPRibbonCategory* AddTab_Calendar ();    //日历
+	CBCGPRibbonCategory* AddTab_Tasks ();       //任务
+	CBCGPRibbonCategory* AddTab_Macros ();      //宏
+	CBCGPRibbonCategory* AddTab_Gantt ();       //甘特图
+
+    CBCGPRibbonCategory* AddTab_Customer ();    //联系人
+	CBCGPRibbonCategory* AddTab_ColorBlock ();  //色块
 
 protected:
 	CBCGPRibbonBar			m_wndRibbonBar;	// Ribbon control bar
-	CBCGPRibbonCategory*	m_pRibbonCategory[6];
+	CBCGPRibbonCategory*	m_pRibbonCategory[e_ModeMax];
 	CBCGPRibbonMainButton	m_MainButton;	// Ribbon main button
 	CBCGPRibbonStatusBar	m_wndStatusBar;
 	COutlookBar				m_wndOutlookBar;

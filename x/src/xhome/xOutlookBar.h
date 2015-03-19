@@ -25,6 +25,9 @@
 #include "TasksBar.h"
 #include "MacrosBar.h"
 #include "GanttBar.h"
+#include "./Customer/CustomerBar.h"
+#include "./xshop/xColorBlockBar.h"
+
 
 /////////////////////////////////////////////////////////////////////////////
 // COutlookBar view
@@ -103,6 +106,8 @@ protected:
 	CTasksBar				m_wndTasksBar;
 	CMacrosBar				m_wndMacrosBar;
 	CGanttBar				m_wndGanttBar;
+    CCustomerBar            m_wndCustomerBar;
+	CColorBlockBar			m_wndColorBlockBar;
 };
 
 /////////////////////////////////////////////////////////////////////////////

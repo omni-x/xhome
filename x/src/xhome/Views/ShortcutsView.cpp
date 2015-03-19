@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "../xHomeDoc.h"
-#include "../mainfrm.h"
+#include "../xMainfrm.h"
 
 #include "ShortcutsView.h"
 
@@ -150,7 +150,7 @@ void CShortcutsView::OnSize(UINT nType, int cx, int cy)
 void CShortcutsView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeShortcuts)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeHome)
 	{
 		return;
 	}

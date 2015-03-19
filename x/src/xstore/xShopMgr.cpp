@@ -1,7 +1,7 @@
 #include "xShopMgr.h"
 #include "../xscheme/xscheme.h"
 
-XShopMgr::XShopMgr()
+XShopMgr::XShopMgr() : curShop_(NULL)
 {
 
 }
@@ -19,7 +19,8 @@ xError XShopMgr::init()
 
 bool XShopMgr::scanShop()
 {
-    std::string tempfile = XPathMgr::instance().getDBPath();
+    std::string tempPath = XPathMgr::instance().getDBPath();
+    std::string tempfile = tempPath;
     tempfile += "*";
     tempfile += X_FILE_EXT;
 
@@ -32,11 +33,14 @@ bool XShopMgr::scanShop()
     do 
     {
         XShop* shop = new XShop;
-        if (x_NoErr == shop->open(fileInfo.name))
+        if (x_NoErr == shop->open(tempPath + fileInfo.name))
             arrShop_.push_back(shop);
         else
             SAFE_DELETE(shop);
     } while (_findnext(handle, &fileInfo) == 0);
+
+    if (!arrShop_.empty())
+        curShop_ = arrShop_.at(0);
 
     return true;
 }
@@ -53,7 +57,8 @@ unsigned int XShopMgr::getShopCount()
 
 XShop* XShopMgr::newShop()
 {
-    return new XShop;
+    curShop_ = new XShop;
+    return curShop_;
 }
 
 void XShopMgr::delShop(XShop* shop)
@@ -62,3 +67,7 @@ void XShopMgr::delShop(XShop* shop)
         delete shop;
 }
 
+void XShopMgr::curShop(XShop* shop)
+{
+    curShop_ = shop;
+}

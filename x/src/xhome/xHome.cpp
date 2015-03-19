@@ -5,9 +5,10 @@
 #include "stdafx.h"
 #include "xHome.h"
 
-#include "MainFrm.h"
+#include "xMainfrm.h"
 #include "xHomeDoc.h"
 #include "xHomeView.h"
+#include "xlogin/xLoginDlg.h"
 
 #include "RibbonTooltipCtrl.h"
 #include "Planner/PlannerTooltipCtrl.h"
@@ -205,7 +206,8 @@ BOOL XHomeApp::InitInstance()
 	SetRegistryBase (_T("Settings2"));
 
 
-    InitRoot();
+    if ( !InitRoot() )
+        return FALSE;
 
 	m_OptionsPlanner.Load ();
 	m_OptionsGantt.Load ();
@@ -430,7 +432,11 @@ BOOL XHomeApp::InitRoot()
         XShop* shop = shopmgr->newShop();
         shop->install("chengdu.local");
     }
-    return TRUE;
+
+    XLoginDlg login(shopmgr->curShop());
+    if ( IDOK == login.DoModal() )
+        return TRUE;
+    return FALSE;
 }
 
 BOOL XHomeApp::UninitRoot()

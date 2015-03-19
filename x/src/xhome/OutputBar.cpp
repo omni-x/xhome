@@ -15,7 +15,7 @@
 
 #include "stdafx.h"
 #include "xHome.h"
-#include "MainFrm.h"
+#include "xMainfrm.h"
 #include "OutputBar.h"
 
 #ifdef _DEBUG

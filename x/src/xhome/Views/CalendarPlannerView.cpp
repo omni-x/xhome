@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "../xHomeDoc.h"
-#include "../mainfrm.h"
+#include "../xMainfrm.h"
 
 #include "CalendarPlannerView.h"
 
@@ -1131,200 +1131,200 @@ void CCalendarPlannerView::OnUpdatePlannerNew(CCmdUI* pCmdUI)
 
 void CCalendarPlannerView::CreateDemo (BOOL bRedraw /*= TRUE*/)
 {
-	CBCGPPlannerManagerCtrl& rMan = GetManagerCtrl ();
+    CBCGPPlannerManagerCtrl& rMan = GetManagerCtrl ();
 
-	COleDateTime dt (COleDateTime::GetCurrentTime ());
-	dt = COleDateTime (dt.GetYear (), dt.GetMonth (), dt.GetDay (), 0, 0, 0);
-	dt = CBCGPPlannerView::GetFirstWeekDay (dt, 2);//rMan.GetFirstDayOfWeek ());
+    COleDateTime dt (COleDateTime::GetCurrentTime ());
+    dt = COleDateTime (dt.GetYear (), dt.GetMonth (), dt.GetDay (), 0, 0, 0);
+    dt = CBCGPPlannerView::GetFirstWeekDay (dt, 2);//rMan.GetFirstDayOfWeek ());
 
-	CAppointment* pApp = NULL;
+    CAppointment* pApp = NULL;
 
-	//--------------------------------------------------
-	// Create multi day appointment: 
-	//--------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (1,  9, 0, 0),
-				dt + COleDateTimeSpan (3, 18, 0, 0),
-				_T("Multi day"),
-				CLR_DEFAULT,
-				CLR_DEFAULT,
-				c_ShowasColors[2]
-			);
-	pApp->AddImage (3);
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    //--------------------------------------------------
+    // Create multi day appointment: 
+    //--------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (1,  9, 0, 0),
+        dt + COleDateTimeSpan (3, 18, 0, 0),
+        _T("Multi day"),
+        CLR_DEFAULT,
+        CLR_DEFAULT,
+        c_ShowasColors[2]
+    );
+    pApp->AddImage (3);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//--------------------------------------------------
-	// Create all day appointment: 
-	//--------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (2, 0, 0, 0),
-				dt + COleDateTimeSpan (2, 0, 0, 0),
-				_T("All day"),
-				CLR_DEFAULT,
-				CLR_DEFAULT,
-				c_ShowasColors[2]
-			);
-	pApp->SetImportance (CAppointment::e_ImportanceLow);
-	pApp->AddImage (3);
-	pApp->SetAllDay (TRUE);
+    //--------------------------------------------------
+    // Create all day appointment: 
+    //--------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (2, 0, 0, 0),
+        dt + COleDateTimeSpan (2, 0, 0, 0),
+        _T("All day"),
+        CLR_DEFAULT,
+        CLR_DEFAULT,
+        c_ShowasColors[2]
+    );
+    pApp->SetImportance (CAppointment::e_ImportanceLow);
+    pApp->AddImage (3);
+    pApp->SetAllDay (TRUE);
 
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//--------------------------------------------------
-	// Create recurring appointment: every week, on 
-	// Monday, Wednesday and Friday, 9:00 AM -  9:15 AM
-	//--------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt,
-				dt,
-				_T("Meeting"),
-				c_CategoryColors[4],
-				CLR_DEFAULT,
-				c_ShowasColors[2]
-			);
-	pApp->AddImage (3);
+    //--------------------------------------------------
+    // Create recurring appointment: every week, on 
+    // Monday, Wednesday and Friday, 9:00 AM -  9:15 AM
+    //--------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt,
+        dt,
+        _T("Meeting"),
+        c_CategoryColors[4],
+        CLR_DEFAULT,
+        c_ShowasColors[2]
+    );
+    pApp->AddImage (3);
 
-	{
-		CBCGPRecurrenceRuleWeekly* pRule = DYNAMIC_DOWNCAST(CBCGPRecurrenceRuleWeekly, 
-			CBCGPPlannerManagerCtrl::CreateRule (BCGP_PLANNER_RULE_WEEKLY));
-		pRule->SetDateStart (dt);
-		pRule->SetTimeInterval (COleDateTimeSpan (0, 9, 0, 0), COleDateTimeSpan (0, 9, 15, 0));
-		pRule->SetDays (CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_1 | 
-			CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_3 |
-			CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_5);
+    {
+        CBCGPRecurrenceRuleWeekly* pRule = DYNAMIC_DOWNCAST(CBCGPRecurrenceRuleWeekly, 
+            CBCGPPlannerManagerCtrl::CreateRule (BCGP_PLANNER_RULE_WEEKLY));
+        pRule->SetDateStart (dt);
+        pRule->SetTimeInterval (COleDateTimeSpan (0, 9, 0, 0), COleDateTimeSpan (0, 9, 15, 0));
+        pRule->SetDays (CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_1 | 
+            CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_3 |
+            CBCGPRecurrenceRuleWeekly::BCGP_REC_RULE_WEEKLY_5);
 
-		pApp->SetRecurrenceRule (pRule);
-		delete pRule;
-	}
+        pApp->SetRecurrenceRule (pRule);
+        delete pRule;
+    }
 
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//--------------------------------------------------------
-	// Create recurring appointment: every weekday, 2 weeks
-	// 6:0 PM-8:00 PM:
-	//--------------------------------------------------------
-	pApp = new CAppointment
-				(
-					dt,
-					dt,
-					_T("Training"),
-					CLR_DEFAULT,
-					CLR_DEFAULT,
-					c_ShowasColors[3]
-				);
+    //--------------------------------------------------------
+    // Create recurring appointment: every weekday, 2 weeks
+    // 6:0 PM-8:00 PM:
+    //--------------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt,
+        dt,
+        _T("Training"),
+        CLR_DEFAULT,
+        CLR_DEFAULT,
+        c_ShowasColors[3]
+    );
 
-	{
-		CBCGPRecurrenceRuleDaily* pRule = DYNAMIC_DOWNCAST(CBCGPRecurrenceRuleDaily, 
-			CBCGPPlannerManagerCtrl::CreateRule (BCGP_PLANNER_RULE_DAILY));
-		pRule->SetDateStart (dt);
-		pRule->SetTimeInterval (COleDateTimeSpan (0, 18, 0, 0), COleDateTimeSpan (0, 20, 0, 0));
-		pRule->SetType (CBCGPRecurrenceRuleDaily::BCGP_REC_RULE_DAILY_TYPE_WEEKDAYS);
+    {
+        CBCGPRecurrenceRuleDaily* pRule = DYNAMIC_DOWNCAST(CBCGPRecurrenceRuleDaily, 
+            CBCGPPlannerManagerCtrl::CreateRule (BCGP_PLANNER_RULE_DAILY));
+        pRule->SetDateStart (dt);
+        pRule->SetTimeInterval (COleDateTimeSpan (0, 18, 0, 0), COleDateTimeSpan (0, 20, 0, 0));
+        pRule->SetType (CBCGPRecurrenceRuleDaily::BCGP_REC_RULE_DAILY_TYPE_WEEKDAYS);
 
-		pRule->SetLimitType (CBCGPRecurrenceRuleDaily::BCGP_RECURRENCE_RULE_LIMIT_COUNT);
-		pRule->SetLimitCount (10);
+        pRule->SetLimitType (CBCGPRecurrenceRuleDaily::BCGP_RECURRENCE_RULE_LIMIT_COUNT);
+        pRule->SetLimitCount (10);
 
-		pApp->SetRecurrenceRule (pRule);
-		delete pRule;
-	}
+        pApp->SetRecurrenceRule (pRule);
+        delete pRule;
+    }
 
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//-----------------------------------------------------
-	// Create single appointment: 1-st day of week, 8:15 AM:
-	//-----------------------------------------------------
-	dt += COleDateTimeSpan (1, 0, 0, 0);
+    //-----------------------------------------------------
+    // Create single appointment: 1-st day of week, 8:15 AM:
+    //-----------------------------------------------------
+    dt += COleDateTimeSpan (1, 0, 0, 0);
 
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (0,  8, 15, 0),
-				dt + COleDateTimeSpan (0,  8, 15, 0),
-				_T("Phone call"),
-				c_CategoryColors[5],
-				CLR_DEFAULT,
-				c_ShowasColors[3]
-			);
-	pApp->SetImportance (CAppointment::e_ImportanceHigh);
-	pApp->SetPrivate ();
-	pApp->AddImage (5);
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (0,  8, 15, 0),
+        dt + COleDateTimeSpan (0,  8, 15, 0),
+        _T("Phone call"),
+        c_CategoryColors[5],
+        CLR_DEFAULT,
+        c_ShowasColors[3]
+    );
+    pApp->SetImportance (CAppointment::e_ImportanceHigh);
+    pApp->SetPrivate ();
+    pApp->AddImage (5);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	dt += COleDateTimeSpan (1, 0, 0, 0);
-	
-	//-----------------------------------------------------
-	// Create single appointment: 2-nd day of week, 9:30 AM:
-	//-----------------------------------------------------
-	rMan.AddAppointment
-		(
-			new CAppointment
-			(
-				dt + COleDateTimeSpan (0,  9, 30, 0),
-				dt + COleDateTimeSpan (0, 12,  0, 0),
-				_T("Briefing"),
-				c_CategoryColors[0],
-				CLR_DEFAULT,
-				c_ShowasColors[2]
-			),
-			FALSE, FALSE
-		);
+    dt += COleDateTimeSpan (1, 0, 0, 0);
 
-	dt += COleDateTimeSpan (1, 0, 0, 0);
+    //-----------------------------------------------------
+    // Create single appointment: 2-nd day of week, 9:30 AM:
+    //-----------------------------------------------------
+    rMan.AddAppointment
+        (
+        new CAppointment
+        (
+        dt + COleDateTimeSpan (0,  9, 30, 0),
+        dt + COleDateTimeSpan (0, 12,  0, 0),
+        _T("Briefing"),
+        c_CategoryColors[0],
+        CLR_DEFAULT,
+        c_ShowasColors[2]
+    ),
+        FALSE, FALSE
+        );
 
-	//-----------------------------------------------------
-	// Create single appointment: 3-d day of week, 2:00 PM:
-	//-----------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (0, 14, 30, 0),
-				dt + COleDateTimeSpan (0, 15,  0, 0),
-				_T("Meeting (friends)"),
-				c_CategoryColors[1],
-				CLR_DEFAULT,
-				c_ShowasColors[3]
-			);
-	pApp->SetPrivate ();
-	pApp->AddImage (3);
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    dt += COleDateTimeSpan (1, 0, 0, 0);
 
-	dt += COleDateTimeSpan (1, 0, 0, 0);
+    //-----------------------------------------------------
+    // Create single appointment: 3-d day of week, 2:00 PM:
+    //-----------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (0, 14, 30, 0),
+        dt + COleDateTimeSpan (0, 15,  0, 0),
+        _T("Meeting (friends)"),
+        c_CategoryColors[1],
+        CLR_DEFAULT,
+        c_ShowasColors[3]
+    );
+    pApp->SetPrivate ();
+    pApp->AddImage (3);
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//-----------------------------------------------------
-	// Create single appointment: 4-th day of week, 3:30 PM:
-	//-----------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (0, 15, 30, 0),
-				dt + COleDateTimeSpan (0, 17,  0, 0),
-				_T("Business lunch"),
-				c_CategoryColors[2],
-				CLR_DEFAULT,
-				c_ShowasColors[2]
-			);
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    dt += COleDateTimeSpan (1, 0, 0, 0);
 
-	dt += COleDateTimeSpan (2, 0, 0, 0);
+    //-----------------------------------------------------
+    // Create single appointment: 4-th day of week, 3:30 PM:
+    //-----------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (0, 15, 30, 0),
+        dt + COleDateTimeSpan (0, 17,  0, 0),
+        _T("Business lunch"),
+        c_CategoryColors[2],
+        CLR_DEFAULT,
+        c_ShowasColors[2]
+    );
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	//-----------------------------------------------------
-	// Create single appointment: 6 day of week, 2:00 PM:
-	//-----------------------------------------------------
-	pApp = new CAppointment
-			(
-				dt + COleDateTimeSpan (0, 14,  0, 0),
-				dt + COleDateTimeSpan (0, 18,  0, 0),
-				_T("John's birthday"),
-				c_CategoryColors[3],
-				CLR_DEFAULT,
-				c_ShowasColors[3]
-			);
-	rMan.AddAppointment (pApp, FALSE, FALSE);
+    dt += COleDateTimeSpan (2, 0, 0, 0);
 
-	rMan.QueryAppointments ();
-	rMan.AdjustLayout (bRedraw);
-	rMan.UpdateCalendarsState ();
+    //-----------------------------------------------------
+    // Create single appointment: 6 day of week, 2:00 PM:
+    //-----------------------------------------------------
+    pApp = new CAppointment
+        (
+        dt + COleDateTimeSpan (0, 14,  0, 0),
+        dt + COleDateTimeSpan (0, 18,  0, 0),
+        _T("John's birthday"),
+        c_CategoryColors[3],
+        CLR_DEFAULT,
+        c_ShowasColors[3]
+    );
+    rMan.AddAppointment (pApp, FALSE, FALSE);
 
-	GetDocument ()->SetModifiedFlag (FALSE);
+    rMan.QueryAppointments ();
+    rMan.AdjustLayout (bRedraw);
+    rMan.UpdateCalendarsState ();
+
+    GetDocument ()->SetModifiedFlag (FALSE);
 }
 
 int CCalendarPlannerView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
@@ -1591,7 +1591,7 @@ BOOL CCalendarPlannerView::Save(const CString& strPath)
 void CCalendarPlannerView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeCalendar)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeCalendar)
 	{
 		return;
 	}

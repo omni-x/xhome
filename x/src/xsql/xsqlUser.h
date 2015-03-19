@@ -3,6 +3,7 @@
 
 #include "xsqlPre.h"
 #include "../../include/xError.h"
+#include "../../include/xUser.h"
 
 class CppSQLite3DB;
 class _xsql_ XSqlUser
@@ -13,6 +14,8 @@ public:
 
     bool userExists(const std::string& name);
     bool userCheck(const std::string& name, const std::string& pwd);
+    bool addUser(const xUser& user);
+    bool delUser(const std::string& name);
 
 private:
     CppSQLite3DB*   sqlite_;

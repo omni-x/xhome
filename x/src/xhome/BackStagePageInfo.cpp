@@ -15,7 +15,7 @@
 
 #include "stdafx.h"
 #include "xHome.h"
-#include "mainfrm.h"
+#include "xMainfrm.h"
 #include "BackStagePageInfo.h"
 
 #ifdef _DEBUG

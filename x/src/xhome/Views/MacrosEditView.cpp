@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "../xHomeDoc.h"
-#include "../mainfrm.h"
+#include "../xMainfrm.h"
 
 #include "MacrosEditView.h"
 
@@ -1151,7 +1151,7 @@ void CMacrosEditView::OnFontDialog()
 void CMacrosEditView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeMacros)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeMacros)
 	{
 		return;
 	}

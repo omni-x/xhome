@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "../xHomeDoc.h"
-#include "../mainfrm.h"
+#include "../xMainfrm.h"
 
 #include "MailView.h"
 #include "../Mail/MailFrame.h"
@@ -517,7 +517,7 @@ BOOL CMailView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 void CMailView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeMail)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeMail)
 	{
 		return;
 	}

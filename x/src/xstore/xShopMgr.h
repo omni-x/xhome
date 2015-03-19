@@ -16,12 +16,20 @@ public:
     unsigned int getShopCount();
     XShop* newShop();
     void delShop(XShop* shop);
+    XShop* curShop();
+    void curShop(XShop* shop);
 
 protected:
     bool scanShop();
 
 private:
     XShopArray  arrShop_;
+    XShop*      curShop_;
 };
+
+inline XShop* XShopMgr::curShop()
+{
+    return curShop_;
+}
 
 #endif

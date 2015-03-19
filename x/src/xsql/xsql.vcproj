@@ -219,6 +219,14 @@
 			>
 		</File>
 		<File
+			RelativePath=".\xsqlOrder.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlOrder.h"
+			>
+		</File>
+		<File
 			RelativePath=".\xsqlPre.h"
 			>
 		</File>

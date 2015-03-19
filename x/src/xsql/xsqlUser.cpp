@@ -30,13 +30,28 @@ bool XSqlUser::userCheck(const std::string& name, const std::string& pwd)
     CppSQLite3Query q = sqlite_->execQuery(bufSQL);
     if (!q.eof())
     {
-        for (int fld = 0; fld < q.numFields(); fld++)
-        {
-            const char* lpwd = q.fieldValue("password");
-            if ( strcmp(pwd.c_str(), lpwd) == 0 )
-                rc = true;
-        }
+        const char* lpwd = q.fieldValue("password");
+        if ( strcmp(pwd.c_str(), lpwd) == 0 )
+            rc = true;
     }
     q.finalize();
     return rc;
+}
+
+bool XSqlUser::addUser(const xUser& user)
+{
+    bool rc = false;
+    CppSQLite3Buffer bufSQL;
+    bufSQL.format(X_SQL_USER_INSERT_XXX, user.name_.c_str(), user.pwd_, user.type_);
+    sqlite_->execQuery(bufSQL);
+    return true;
+}
+
+bool XSqlUser::delUser(const std::string& name)
+{
+    bool rc = false;
+    CppSQLite3Buffer bufSQL;
+    bufSQL.format(X_SQL_USER_DELETE_NAME, name.c_str());
+    sqlite_->execQuery(bufSQL);
+    return true;
 }

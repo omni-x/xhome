@@ -14,11 +14,11 @@
 //
 
 #include "stdafx.h"
-#include "OutlookBar.h"
+#include "xOutlookBar.h"
 #include "xHome.h"
 #include "xHomeDoc.h"
 #include "ShortcutsBar.h"
-#include "mainfrm.h"
+#include "xMainfrm.h"
 
 #ifndef _BCGSUITE_INC_
 #include "BCGPOutlookBarDockingPane.h"
@@ -108,42 +108,57 @@ BOOL COutlookBar::Create (LPCTSTR lpszCaption, CWnd* pParentWnd,
 		TRACE0("Failed to create shortcuts tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndShortcutsBar, c_ViewNames[XHomeDoc::e_ModeShortcuts], XHomeDoc::e_ModeShortcuts, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndShortcutsBar, c_ViewNames[e_ModeHome], e_ModeHome, FALSE);
 
 	if (!m_wndMailBar.Create (this, IDC_SHORTCUTSBAR_MAIL))
 	{
 		TRACE0("Failed to create mail tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndMailBar, c_ViewNames[XHomeDoc::e_ModeMail], XHomeDoc::e_ModeMail, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndMailBar, c_ViewNames[e_ModeMail], e_ModeMail, FALSE);
 
 	if (!m_wndCalendarBar.Create (this, IDC_SHORTCUTSBAR_PLANNER))
 	{
 		TRACE0("Failed to create calendar tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndCalendarBar, c_ViewNames[XHomeDoc::e_ModeCalendar], XHomeDoc::e_ModeCalendar, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndCalendarBar, c_ViewNames[e_ModeCalendar], e_ModeCalendar, FALSE);
 
 	if (!m_wndTasksBar.Create (this, IDC_SHORTCUTSBAR_TASKS))
 	{
 		TRACE0("Failed to create tasks tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndTasksBar, c_ViewNames[XHomeDoc::e_ModeTasks], XHomeDoc::e_ModeTasks, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndTasksBar, c_ViewNames[e_ModeTasks], e_ModeTasks, FALSE);
 
 	if (!m_wndMacrosBar.Create (this, IDC_SHORTCUTSBAR_MACROS))
 	{
 		TRACE0("Failed to create macros tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndMacrosBar, c_ViewNames[XHomeDoc::e_ModeMacros], XHomeDoc::e_ModeMacros, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndMacrosBar, c_ViewNames[e_ModeMacros], e_ModeMacros, FALSE);
 	
 	if (!m_wndGanttBar.Create (this, IDC_SHORTCUTSBAR_GANTT))
 	{
 		TRACE0("Failed to create gantt tab\n");
 		return FALSE;      // fail to create
 	}
-	pShortcutsBarContainer->AddTab (&m_wndGanttBar, c_ViewNames[XHomeDoc::e_ModeGantt], XHomeDoc::e_ModeGantt, FALSE);
+	pShortcutsBarContainer->AddTab (&m_wndGanttBar, c_ViewNames[e_ModeGantt], e_ModeGantt, FALSE);
+
+    if (!m_wndCustomerBar.Create (this, IDC_CUSTOMER_BAR))
+    {
+        TRACE0("Failed to create gantt tab\n");
+        return FALSE;      // fail to create
+    }
+    pShortcutsBarContainer->AddTab (&m_wndCustomerBar, c_ViewNames[e_ModeCustomer], 1, FALSE);
+
+	if (!m_wndColorBlockBar.Create (this, IDC_COLORBLOCK_BAR))
+	{
+		TRACE0("Failed to create gantt tab\n");
+		return FALSE;      // fail to create
+	}
+	pShortcutsBarContainer->AddTab (&m_wndColorBlockBar, c_ViewNames[e_ModeColorBlock], 1, FALSE);
+	
 
 	SetButtonsFont (&globalData.fontBold);
 	EnableSetCaptionTextToTabName (TRUE);

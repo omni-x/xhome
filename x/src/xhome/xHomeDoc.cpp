@@ -3,7 +3,7 @@
 //
 
 #include "stdafx.h"
-#include "mainfrm.h"
+#include "xMainfrm.h"
 #include "xHome.h"
 #include "xHomeDoc.h"
 
@@ -13,6 +13,9 @@
 #include "Views/TasksView.h"
 #include "Views/MacrosEditView.h"
 #include "Views/GanttView.h"
+
+#include "./Customer/CustomerView.h"
+#include "./xshop/xColorBlockView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -78,7 +81,7 @@ BOOL XHomeDoc::OnNewDocument()
 
 	if (m_Mode == e_ModeUndefined)
 	{
-		XMode mode = (XMode)theApp.GetProfileInt (_T("Document"), _T("Mode"), (int)e_ModeShortcuts);
+		XMode mode = (XMode)theApp.GetProfileInt (_T("Document"), _T("Mode"), (int)e_ModeHome);
 		SetMode (mode);
 	}
 
@@ -117,7 +120,7 @@ void XHomeDoc::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
-void XHomeDoc::SetMode(XHomeDoc::XMode mode)
+void XHomeDoc::SetMode(XMode mode)
 {
     if(m_Mode != mode)
     {
@@ -188,7 +191,9 @@ BOOL XHomeDoc::CreateViews(CFrameWnd* pFrameWnd, CCreateContext* pContext)
         RUNTIME_CLASS(CCalendarPlannerView),
 		RUNTIME_CLASS(CTasksView),
         RUNTIME_CLASS(CMacrosEditView),
-		RUNTIME_CLASS(CGanttView)
+		RUNTIME_CLASS(CGanttView),
+        RUNTIME_CLASS(CCustomerView),
+		RUNTIME_CLASS(CColorBlockView)
     };
 
     CCreateContext context = *pContext;
@@ -308,7 +313,7 @@ void XHomeDoc::UpdateZoom (int index)
 
 	if (GetMode () == e_ModeGantt)
 	{
-		CGanttView* pView = DYNAMIC_DOWNCAST (CGanttView, GetView (XHomeDoc::e_ModeGantt));
+		CGanttView* pView = DYNAMIC_DOWNCAST (CGanttView, GetView (e_ModeGantt));
 		if (pView != NULL)
 		{
 			pView->UpdateZoom (index);

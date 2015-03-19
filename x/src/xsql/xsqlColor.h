@@ -4,7 +4,7 @@
 
 #include "xsqlPre.h"
 #include "../../include/xError.h"
-#include "../../include/xCustomer.h"
+#include "../../include/xMaterial.h"
 
 class CppSQLite3DB;
 class _xsql_ XSqlColor

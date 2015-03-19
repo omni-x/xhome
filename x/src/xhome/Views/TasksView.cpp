@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "../xHomeDoc.h"
-#include "../mainfrm.h"
+#include "../xMainfrm.h"
 
 #include "TasksView.h"
 
@@ -737,7 +737,7 @@ BOOL CTasksView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 void CTasksView::UpdateCaptionText ()
 {
 	XHomeDoc* pDoc = GetDocument ();
-	if (pDoc == NULL || pDoc->GetMode () != XHomeDoc::e_ModeTasks)
+	if (pDoc == NULL || pDoc->GetMode () != e_ModeTasks)
 	{
 		return;
 	}

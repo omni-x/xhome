@@ -16,7 +16,7 @@
 #include "stdafx.h"
 #include "../xHome.h"
 #include "CustomEditCtrl.h"
-#include "../MainFrm.h"
+#include "../xMainfrm.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

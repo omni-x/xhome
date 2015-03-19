@@ -849,50 +849,6 @@
 				>
 			</File>
 			<File
-				RelativePath="MainFrm.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseStatic|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath="OptionsPage.cpp"
 				>
 				<FileConfiguration
@@ -1253,6 +1209,50 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\xMainFrm.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseStatic|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -1295,10 +1295,6 @@
 				>
 			</File>
 			<File
-				RelativePath="MainFrm.h"
-				>
-			</File>
-			<File
 				RelativePath="OptionsPage.h"
 				>
 			</File>
@@ -1334,6 +1330,10 @@
 				RelativePath=".\xHomeView.h"
 				>
 			</File>
+			<File
+				RelativePath=".\xMainFrm.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -1349,6 +1349,10 @@
 			</File>
 			<File
 				RelativePath="res\BCGPOrganizerDoc.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\res\MacrosEdit\break.bmp"
 				>
 			</File>
 			<File
@@ -1460,6 +1464,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\Mail\send.bmp"
+				>
+			</File>
+			<File
 				RelativePath=".\res\shortcuts_large.png"
 				>
 			</File>
@@ -1468,11 +1476,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\showas.bmp"
+				>
+			</File>
+			<File
 				RelativePath="res\Toolbar.bmp"
 				>
 			</File>
 			<File
 				RelativePath="res\Toolbar_hc.png"
+				>
+			</File>
+			<File
+				RelativePath=".\res\Planner\updown.bmp"
 				>
 			</File>
 			<Filter
@@ -2793,54 +2809,6 @@
 				>
 			</File>
 			<File
-				RelativePath="OutlookBar.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseStatic|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="OutlookBar.h"
-				>
-			</File>
-			<File
 				RelativePath="OutputBar.cpp"
 				>
 				<FileConfiguration
@@ -2982,6 +2950,54 @@
 			</File>
 			<File
 				RelativePath="TasksBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xOutlookBar.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseStatic|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\xOutlookBar.h"
 				>
 			</File>
 		</Filter>
@@ -3185,6 +3201,198 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="xcustomer"
+			>
+			<File
+				RelativePath=".\Customer\CustomerBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerEditDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerEditDlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerMgr.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerMgr.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerReportCtrl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerReportCtrl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Customer\CustomerView.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Common"
+			>
+			<File
+				RelativePath=".\Common\XHomeCommonDef.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="xlogin"
+			>
+			<File
+				RelativePath=".\xlogin\xLoginDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xlogin\xLoginDlg.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="xstore"
+			>
+			<File
+				RelativePath=".\xStore\xHomeNewStoreDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xStore\xHomeNewStoreDlg.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="xshop"
+			>
+			<File
+				RelativePath=".\xshop\xColorBlockBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xColorBlockBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xColorBlockView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xColorBlockView.h"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\res\Background1.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Background2.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Background3.PNG"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Background4.PNG"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Background5.PNG"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Background6.PNG"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Planner\bs_print_type.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\bs_watermark.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Planner\buttons.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\buttons.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Planner\file_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\file_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Planner\file_small.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\file_small.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\home_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\home_small.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\options_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\options_small.PNG"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Shortcuts\shortcuts_bs.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\showas_hc.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\ThemeColors.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\ThemeEffects.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\ThemeFonts.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\ThemeThemes.png"
+			>
+		</File>
 		<File
 			RelativePath="xptheme.xml"
 			>

@@ -4,6 +4,7 @@
 #include "xStorePre.h"
 #include "../../include/xError.h"
 #include "../../include/xCustomer.h"
+#include "../../include/xMaterial.h"
 
 class XSqlShop;
 class _xstore_ XShop

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
-// Used by BCGPOrganizer.rc
+// Microsoft Visual C++ generated include file.
+// Used by xHome.rc
 //
 #define IDB_BUTTONS                     100
 #define IDB_CAPTION                     101
@@ -195,6 +195,12 @@
 #define IDR_RIBBON_BACKGROUND4          282
 #define IDR_RIBBON_BACKGROUND5          283
 #define IDR_RIBBON_BACKGROUND6          284
+#define IDD_OMNICONTACTSEIDTDLG         285
+#define IDD_CUSTOMEREIDTDLG             285
+#define IDD_CUSTOMER_EDIT               285
+#define IDD_DIALOG_LOGIN                286
+#define IDD_DIALOG1                     287
+#define IDD_DIALOG_STORE                287
 #define IDC_APP_EDIT_DATE_END           1041
 #define IDC_APP_EDIT_DATE_START         1042
 #define IDC_APP_EDIT_DATETIME_END_STATIC 1043
@@ -315,6 +321,14 @@
 #define IDC_BS_FORM_INFO_SEP2           1159
 #define IDC_BS_PRINT_TYPE               1160
 #define IDC_BACKGROUND_IMAGE            1161
+#define IDC_EDIT_NAME                   1162
+#define IDC_EDIT_TEL                    1163
+#define IDC_EDIT_QQ                     1164
+#define IDC_CMB_GROUP                   1166
+#define ID_OK                           1167
+#define ID_CANCEL                       1168
+#define IDC_EDIT_USER                   1170
+#define IDC_EDIT_PASSWORD               1171
 #define ID_APP_EDIT_ALLDAY              32787
 #define ID_APP_EDIT_DELETE              32788
 #define ID_APP_EDIT_IMPORTANCE_HIGH     32789
@@ -542,9 +556,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        285
+#define _APS_NEXT_RESOURCE_VALUE        288
 #define _APS_NEXT_COMMAND_VALUE         32998
-#define _APS_NEXT_CONTROL_VALUE         1162
+#define _APS_NEXT_CONTROL_VALUE         1172
 #define _APS_NEXT_SYMED_VALUE           1244
 #endif
 #endif

@@ -25,18 +25,6 @@ class CPlannerOptions;
 
 class XHomeDoc : public CDocument
 {
-public:
-	enum XMode
-	{
-		e_ModeUndefined	= -1,
-		e_ModeShortcuts = 0,
-		e_ModeMail		= 1,
-		e_ModeCalendar	= 2,
-		e_ModeTasks     = 3,
-		e_ModeMacros	= 4,
-		e_ModeGantt		= 5
-	};
-
 protected: // create from serialization only
 	XHomeDoc();
 	DECLARE_DYNCREATE(XHomeDoc)
@@ -113,13 +101,13 @@ protected:
 
 /////////////////////////////////////////////////////////////////////////////
 
-inline XHomeDoc::XMode XHomeDoc::GetMode() const
+inline XMode XHomeDoc::GetMode() const
 {
     return m_Mode;
 }
 
 
-inline CView* XHomeDoc::GetView(XHomeDoc::XMode mode)
+inline CView* XHomeDoc::GetView(XMode mode)
 {
 	CView* pView = NULL;
 

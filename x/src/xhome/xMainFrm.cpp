@@ -17,7 +17,7 @@
 #include "xHome.h"
 #include "xHomeDoc.h"
 
-#include "MainFrm.h"
+#include "xMainFrm.h"
 
 #include "OptionsPage.h"
 #include "ResourcePage.h"
@@ -250,42 +250,52 @@ void CMainFrame::ActivateCategory (CBCGPRibbonCategory* pCategory)
 		return;
 	}
 
-	XHomeDoc::XMode mode = XHomeDoc::e_ModeUndefined;
+	XMode mode = e_ModeUndefined;
 
 	int nShortcut = 0;
 
-	if (pCategory == m_pRibbonCategory[0])
+	if (pCategory == m_pRibbonCategory[e_ModeHome])
 	{
 		nShortcut = 0;
-		mode = XHomeDoc::e_ModeShortcuts;
+		mode = e_ModeHome;
 	}
-	else if (pCategory == m_pRibbonCategory[1])
+	else if (pCategory == m_pRibbonCategory[e_ModeMail])
 	{
 		nShortcut = 1;
-		mode = XHomeDoc::e_ModeMail;
+		mode = e_ModeMail;
 	}
-	else if (pCategory == m_pRibbonCategory[2])
+	else if (pCategory == m_pRibbonCategory[e_ModeCalendar])
 	{
 		nShortcut = 2;
-		mode = XHomeDoc::e_ModeCalendar;
+		mode = e_ModeCalendar;
 	}
-	else if (pCategory == m_pRibbonCategory[3])
+	else if (pCategory == m_pRibbonCategory[e_ModeTasks])
 	{
 		nShortcut = 3;
-		mode = XHomeDoc::e_ModeTasks;
+		mode = e_ModeTasks;
 	}
-	else if (pCategory == m_pRibbonCategory[4])
+	else if (pCategory == m_pRibbonCategory[e_ModeMacros])
 	{
 		nShortcut = 4;
-		mode = XHomeDoc::e_ModeMacros;
+		mode = e_ModeMacros;
 	}
-	else if (pCategory == m_pRibbonCategory[5])
+	else if (pCategory == m_pRibbonCategory[e_ModeGantt])
 	{
 		nShortcut = 5;
-		mode = XHomeDoc::e_ModeGantt;
+		mode = e_ModeGantt;
+	}
+    else if (pCategory == m_pRibbonCategory[e_ModeCustomer])
+    {
+        nShortcut = 6;
+        mode = e_ModeCustomer;
+    }
+	else if (pCategory == m_pRibbonCategory[e_ModeColorBlock])
+	{
+		nShortcut = 7;
+		mode = e_ModeColorBlock;
 	}
 
-	ASSERT (mode != XHomeDoc::e_ModeUndefined);
+	ASSERT (mode != e_ModeUndefined);
 
 	XHomeDoc* pDoc = DYNAMIC_DOWNCAST (XHomeDoc, GetActiveDocument ());
 	if (pDoc != NULL)
@@ -343,12 +353,15 @@ BOOL CMainFrame::CreateRibbonBar ()
 	//----------
 	// Add tabs:
 	//----------
-	m_pRibbonCategory[0] = AddTab_Shortcuts ();
-	m_pRibbonCategory[1] = AddTab_Mail ();
-	m_pRibbonCategory[2] = AddTab_Calendar ();
-	m_pRibbonCategory[3] = AddTab_Tasks ();
-	m_pRibbonCategory[4] = AddTab_Macros ();
-	m_pRibbonCategory[5] = AddTab_Gantt ();
+	m_pRibbonCategory[e_ModeHome] = AddTab_Shortcuts ();
+	m_pRibbonCategory[e_ModeMail] = AddTab_Mail ();
+	m_pRibbonCategory[e_ModeCalendar] = AddTab_Calendar ();
+	m_pRibbonCategory[e_ModeTasks] = AddTab_Tasks ();
+	m_pRibbonCategory[e_ModeMacros] = AddTab_Macros ();
+	m_pRibbonCategory[e_ModeGantt] = AddTab_Gantt ();
+    m_pRibbonCategory[e_ModeCustomer] = AddTab_Customer ();
+	m_pRibbonCategory[e_ModeColorBlock] = AddTab_ColorBlock ();
+    
 /*
 	//------------------
 	// Add context tabs:
@@ -689,7 +702,7 @@ void CMainFrame::AddMainCategory ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Shortcuts ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeShortcuts], IDB_SHORTCUTS_RIBBON_SMALL, IDB_SHORTCUTS_RIBBON_LARGE);
+		c_ViewNames[e_ModeHome], IDB_SHORTCUTS_RIBBON_SMALL, IDB_SHORTCUTS_RIBBON_LARGE);
 	pCategory->SetKeys (_T("h"));
 
 	CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("Actions"), m_PanelImages.ExtractIcon (1));
@@ -705,7 +718,7 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Shortcuts ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Mail ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeMail], IDB_MAIL_SMALL, IDB_MAIL_LARGE);
+		c_ViewNames[e_ModeMail], IDB_MAIL_SMALL, IDB_MAIL_LARGE);
 	pCategory->SetKeys (_T("m"));
 
 	CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("Actions"), m_PanelImages.ExtractIcon (2));
@@ -728,7 +741,7 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Mail ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Calendar ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeCalendar], IDB_PLANNER_SMALL, IDB_PLANNER_LARGE);
+		c_ViewNames[e_ModeCalendar], IDB_PLANNER_SMALL, IDB_PLANNER_LARGE);
 	pCategory->SetKeys (_T("c"));
 
 	CBCGPRibbonPanel* pPanelClipboard = pCategory->AddPanel (_T("Clipboard"), m_PanelImages.ExtractIcon (5));
@@ -802,7 +815,7 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Calendar ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Tasks ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeTasks], IDB_TASKS_SMALL, IDB_TASKS_LARGE);
+		c_ViewNames[e_ModeTasks], IDB_TASKS_SMALL, IDB_TASKS_LARGE);
 	pCategory->SetKeys (_T("t"));
 
 	CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("Actions"), m_PanelImages.ExtractIcon (9));
@@ -824,7 +837,7 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Tasks ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Macros ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeMacros], IDB_MACROS_SMALL, IDB_MACROS_LARGE);
+		c_ViewNames[e_ModeMacros], IDB_MACROS_SMALL, IDB_MACROS_LARGE);
 	pCategory->SetKeys (_T("r"));
 
 	CBCGPRibbonPanel* pPanelClipboard = pCategory->AddPanel (_T("Clipboard"), m_PanelImages.ExtractIcon (5));
@@ -889,7 +902,7 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Macros ()
 CBCGPRibbonCategory* CMainFrame::AddTab_Gantt ()
 {
 	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
-		c_ViewNames[XHomeDoc::e_ModeGantt], IDB_GANTT_SMALL, IDB_GANTT_LARGE);
+		c_ViewNames[e_ModeGantt], IDB_GANTT_SMALL, IDB_GANTT_LARGE);
 	pCategory->SetKeys (_T("g"));
 
 	CBCGPRibbonPanel* pPanelClipboard = pCategory->AddPanel (_T("Clipboard"), m_PanelImages.ExtractIcon (5));
@@ -939,6 +952,42 @@ CBCGPRibbonCategory* CMainFrame::AddTab_Gantt ()
 	{
 		pElement->SetImageIndex (10, FALSE);
 	}
+
+	return pCategory;
+}
+
+CBCGPRibbonCategory* CMainFrame::AddTab_Customer ()
+{
+    CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
+        c_ViewNames[e_ModeCustomer], IDB_MAIL_SMALL, IDB_MAIL_LARGE);
+    pCategory->SetKeys (_T("c"));
+
+    CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("编辑"), m_PanelImages.ExtractIcon (2));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_NEW, _T("新建"), 0, 0));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_REMOVE, _T("删除"), 1, 1));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_FIND, _T("查找"), 2, 2));
+
+    CBCGPRibbonPanel* pPanelNames = pCategory->AddPanel (_T("导入/导出"), m_PanelImages.ExtractIcon (3));
+    pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_IMPORT, _T("导入"), 3, 3));
+    pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_EXPORT, _T("导出"), 4, 4));
+
+    return pCategory;
+}
+
+CBCGPRibbonCategory* CMainFrame::AddTab_ColorBlock ()
+{
+	CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
+		c_ViewNames[e_ModeColorBlock], IDB_MAIL_SMALL, IDB_MAIL_LARGE);
+	pCategory->SetKeys (_T("l"));
+
+	CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("编辑"), m_PanelImages.ExtractIcon (2));
+	pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_NEW, _T("新建"), 0, 0));
+	pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_REMOVE, _T("删除"), 1, 1));
+	pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_FIND, _T("查找"), 2, 2));
+
+	CBCGPRibbonPanel* pPanelNames = pCategory->AddPanel (_T("导入/导出"), m_PanelImages.ExtractIcon (3));
+	pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_IMPORT, _T("导入"), 3, 3));
+	pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_EXPORT, _T("导出"), 4, 4));
 
 	return pCategory;
 }
@@ -1028,8 +1077,8 @@ BOOL CMainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParent
 		return FALSE;
 	}
 
-	if (theApp.GetProfileInt (_T("Document"), _T("Mode"), XHomeDoc::e_ModeUndefined) ==
-		XHomeDoc::e_ModeUndefined)
+	if (theApp.GetProfileInt (_T("Document"), _T("Mode"), e_ModeUndefined) ==
+		e_ModeUndefined)
 	{
 		m_wndOutlookBar.SetActiveShortcut (0);
 	}
