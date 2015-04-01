@@ -215,6 +215,14 @@
 			>
 		</File>
 		<File
+			RelativePath=".\xsqlCustomer.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\xsqlCustomer.h"
+			>
+		</File>
+		<File
 			RelativePath=".\xsqlDef.h"
 			>
 		</File>

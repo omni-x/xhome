@@ -9,13 +9,12 @@
 
 IMPLEMENT_DYNAMIC(XCustomerEditDlg, CBCGPDialog)
 
-XCustomerEditDlg::XCustomerEditDlg(const xCustomer& customer, bool bNew, CWnd* pParent)
+XCustomerEditDlg::XCustomerEditDlg(xCustomer& customer, bool bNew, CWnd* pParent)
 	: CBCGPDialog(XCustomerEditDlg::IDD, pParent)
+    , m_customer(customer)
+    , m_bNewC(bNew)
 {
     EnableVisualManagerStyle(TRUE, TRUE);
-    m_Customer = customer;
-    m_bNewCustomer = bNew;
-    m_bInitUI = FALSE;  
 }
 
 XCustomerEditDlg::~XCustomerEditDlg()
@@ -39,61 +38,57 @@ BEGIN_MESSAGE_MAP(XCustomerEditDlg, CBCGPDialog)
     ON_EN_CHANGE(IDC_EDIT_QQ, &XCustomerEditDlg::OnEnChangeEditQQ)
     ON_CBN_SELCHANGE(IDC_CMB_GROUP, &XCustomerEditDlg::OnCbnSelchangeComboGroup)
     ON_WM_SYSCOMMAND()
-    ON_BN_CLICKED(ID_OK, &XCustomerEditDlg::OnBnClickedOk)
-    ON_BN_CLICKED(ID_CANCEL, &XCustomerEditDlg::OnBnClickedCancel)
+    ON_BN_CLICKED(IDOK, &XCustomerEditDlg::OnBnClickedOk)
+    ON_BN_CLICKED(IDCANCEL, &XCustomerEditDlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 BOOL XCustomerEditDlg::OnInitDialog()
 {
     CBCGPDialog::OnInitDialog();
-    UpdateUI(TRUE);
-    if ( m_bNewCustomer )
-    {
-        ((CButton*)GetDlgItem(IDOK))->SetWindowText("创建");
-    }
-    else
-        ((CButton*)GetDlgItem(IDOK))->SetWindowText("更新");
+    
 
+    LPCTSTR lpszString = m_bNewC ? "创建" : "编辑";
+
+    CButton* pbtnOK = ((CButton*)GetDlgItem(IDOK));
+    pbtnOK->SetWindowText(lpszString);
+    
+    UpdateUI(TRUE);
+    
     return TRUE;
 }
 
 void XCustomerEditDlg::OnEnChangeEditName()
 {
-    UpdateUI(FALSE);
+    
 }
 
 void XCustomerEditDlg::OnEnChangeEditAddress()
 {
-     UpdateUI(FALSE);
+     
 }
 
 void XCustomerEditDlg::OnEnChangeEditTel()
 {
-    UpdateUI(FALSE);
+    
 }
 
 void XCustomerEditDlg::OnEnChangeEditQQ()
 {
-    UpdateUI(FALSE);
+    
 }
 
 void XCustomerEditDlg::OnCbnSelchangeComboGroup()
 {
-    UpdateUI(FALSE);
-}
 
+}
 
 void XCustomerEditDlg::UpdateUI(BOOL bToUI)
 {
-    if( m_bInitUI )
-        return;
-
     if( bToUI )
     {
-        m_bInitUI = TRUE;
-        m_editName.SetWindowText(m_Customer.name_.c_str());
-        m_editTel.SetWindowText(m_Customer.Tel_.c_str());
-        m_editQQ.SetWindowText(m_Customer.QQ_.c_str());
+        m_editName.SetWindowText(m_customer.name_.c_str());
+        m_editTel.SetWindowText(m_customer.Tel_.c_str());
+        m_editQQ.SetWindowText(m_customer.QQ_.c_str());
         m_cmbGroup.ResetContent();
 //         const lpxCustomerGroupArray& arrGroup = m_pMgr->GetGroups();
 //         for (unsigned int i = 0; i < arrGroup.size(); ++i)
@@ -103,20 +98,19 @@ void XCustomerEditDlg::UpdateUI(BOOL bToUI)
 //             if( m_Customer.id_ == arrGroup[i]->id_ )
 //                 m_cmbGroup.SetCurSel(i);
 //         }   
-        m_bInitUI = FALSE;
     }
     else
     {
         CString strTemp;
         m_editName.GetWindowText(strTemp);
-        m_Customer.name_ = strTemp;
+        m_customer.name_ = strTemp;
         m_editTel.GetWindowText(strTemp);
-        m_Customer.Tel_ = strTemp;
+        m_customer.Tel_ = strTemp;
         m_editQQ.GetWindowText(strTemp);
-        m_Customer.QQ_ = strTemp;
+        m_customer.QQ_ = strTemp;
         int iCur = m_cmbGroup.GetCurSel();
         if( iCur != NULL )
-            m_Customer.id_ = (unsigned int)m_cmbGroup.GetItemData(iCur);
+            m_customer.group_ = (unsigned int)m_cmbGroup.GetItemData(iCur);
     } 
 }
 

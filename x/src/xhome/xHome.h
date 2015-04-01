@@ -126,6 +126,9 @@ public:
 	CGanttOptions	m_OptionsGantt;
 
 
+public:
+    XShop* curShop();
+
 protected:
     BOOL InitRoot();
     BOOL UninitRoot();
@@ -133,6 +136,10 @@ private:
     XRoot m_xRoot;
 };
 
+inline XShop* XHomeApp::curShop()
+{
+    return m_xRoot.getShopMgr()->curShop();
+}
 
 extern XHomeApp theApp;
 

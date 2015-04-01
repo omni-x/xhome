@@ -12,7 +12,7 @@ XSqlColor::~XSqlColor()
 
 }
 
-bool XSqlColor::addColor(const xColorCard& color)
+bool XSqlColor::addColor(xColorCard& color)
 {
     CppSQLite3Buffer bufSQL;
     bufSQL.format(X_SQL_COLOR_INSERT_XXX, color.card_, color.name_, color.rgb_);

@@ -23,6 +23,8 @@ public:
     bool delColor(unsigned int card);
     bool modifyColor(const xColorCard& color);
     bool queryColor(lpxColorCardArray& arrColor);
+    bool getCustomer(lpxCustomerArray& arrCustomer);
+    bool addCustomer(xCustomer& customer);
 
 private:
     XSqlShop* sqlShop_;

@@ -54,15 +54,12 @@ END_MESSAGE_MAP()
 
 XCustomerView::XCustomerView()
 {
-	m_pMgr = new CCustomerMgr;
 
 }
 
 XCustomerView::~XCustomerView()
 {
-    if( m_pMgr != NULL )
-        delete m_pMgr;
-    m_pMgr = NULL;
+
 }
 
 BOOL XCustomerView::PreCreateWindow(CREATESTRUCT& cs)
@@ -151,8 +148,6 @@ int XCustomerView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
     InitGridCtrl();
-    m_pMgr->Load();
-
     FillData();
 	return 0;
 }
@@ -177,9 +172,8 @@ LRESULT XCustomerView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
             CBCGPGridRow* pRow = pItem->GetParentRow();
             if( pRow != NULL )
             {
-                unsigned int id_ = (unsigned int)pRow->GetData();
-
-                const lpxCustomer pCustomer = m_pMgr->GetCustomer(id_);
+                unsigned int id = (unsigned int)pRow->GetData();
+                const lpxCustomer pCustomer = m_arrCustomer[id];
                 if( pCustomer != NULL )
                 {
                     XCustomerEditDlg dlg(*pCustomer, false);
@@ -187,7 +181,6 @@ LRESULT XCustomerView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
                 }
             }
         }
-
     }
     return CBCGPReportView::WindowProc(message,wParam,lParam);
 }
@@ -216,9 +209,19 @@ void XCustomerView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* 
 
 void XCustomerView::OnNew()
 {
-    xCustomer customer;
-    XCustomerEditDlg dlg(customer, true);
-    dlg.DoModal();
+    lpxCustomer customer = new xCustomer;
+    XCustomerEditDlg dlg(*customer, true);
+    if (IDOK == dlg.DoModal())
+    {
+        XShop* shop = theApp.curShop();
+        if ( shop->addCustomer(*customer) )
+        {
+            FillData(*customer);
+            m_arrCustomer.push_back(customer);
+            return;
+        }
+    }
+    SAFE_DELETE(customer);
 }
 
 void XCustomerView::OnDel()
@@ -243,25 +246,31 @@ void XCustomerView::OnExport()
 
 void XCustomerView::FillData()
 {
-    CBCGPReportCtrl* pReportCtrl = GetReportCtrl ();
-    ASSERT_VALID (pReportCtrl);
-
-    const lpxCustomerArray& arrCustomer = m_pMgr->GetCustomers();
-
-    for (unsigned int i = 0; i < arrCustomer.size();++i)
+    XShop* shop = theApp.curShop();
+    if (shop == NULL)
     {
-        const xCustomer* pCustomer = arrCustomer[i];
+        return;
+    }
+    shop->getCustomer(m_arrCustomer);
+    for (unsigned int i = 0; i < m_arrCustomer.size();++i)
+    {
+        FillData(*m_arrCustomer[i], FALSE);
+    }
+}
 
-        CBCGPGridRow* pRow = pReportCtrl->CreateRow (pReportCtrl->GetColumnCount ());
-
-        pRow->GetItem (GridCoulmn_Name)->SetValue (pCustomer->name_.c_str());
-        pRow->GetItem (GridCoulmn_Tel)->SetValue (pCustomer->Tel_.c_str());
-        pRow->GetItem (GridCoulmn_QQ)->SetValue (pCustomer->QQ_.c_str());
-        pRow->GetItem (GridCoulmn_Group)->SetValue ("Group Demo");
-
-        pRow->SetData((DWORD_PTR)(pCustomer->id_));
-
-        pReportCtrl->AddRow (pRow, FALSE);
+void XCustomerView::FillData(const xCustomer& customer, BOOL bRedraw)
+{
+    CBCGPReportCtrl* pReportCtrl = GetReportCtrl ();
+    CBCGPGridRow* pRow = pReportCtrl->CreateRow (pReportCtrl->GetColumnCount ());
+    pRow->GetItem (GridCoulmn_Name)->SetValue (customer.name_.c_str());
+    pRow->GetItem (GridCoulmn_Tel)->SetValue (customer.Tel_.c_str());
+    pRow->GetItem (GridCoulmn_QQ)->SetValue (customer.QQ_.c_str());
+    pRow->GetItem (GridCoulmn_Group)->SetValue ("group");
+    pRow->SetData((DWORD_PTR)(customer.id_));
+    pReportCtrl->AddRow (pRow, FALSE);
+    if (bRedraw)
+    {
+        pReportCtrl->AdjustLayout ();
     }
 }
 

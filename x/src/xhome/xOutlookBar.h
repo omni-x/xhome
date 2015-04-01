@@ -25,8 +25,9 @@
 #include "TasksBar.h"
 #include "MacrosBar.h"
 #include "GanttBar.h"
-#include "./Customer/xCustomerBar.h"
+#include "./xcustomer/xCustomerBar.h"
 #include "./xshop/xColorBlockBar.h"
+#include "./xuser/xUserBar.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -108,6 +109,7 @@ protected:
 	CGanttBar				m_wndGanttBar;
     CCustomerBar            m_wndCustomerBar;
 	CColorBlockBar			m_wndColorBlockBar;
+    XUserBar                m_wndUserBar;
 };
 
 /////////////////////////////////////////////////////////////////////////////

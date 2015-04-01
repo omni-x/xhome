@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "../xHome.h"
-#include "xColorBlockBar.h"
+#include "xUserBar.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -9,18 +9,18 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CColorBlockBar
+// XUserBar
 
-CColorBlockBar::CColorBlockBar()
+XUserBar::XUserBar()
 {
 }
 
-CColorBlockBar::~CColorBlockBar()
+XUserBar::~XUserBar()
 {
 }
 
 
-BOOL CColorBlockBar::Create(CWnd* pParentWnd, UINT nID)
+BOOL XUserBar::Create(CWnd* pParentWnd, UINT nID)
 {
 	if (CTreeCtrl::Create (WS_CHILD | WS_VISIBLE | TVS_HASLINES | 
 			TVS_LINESATROOT | TVS_HASBUTTONS, CRect (0, 0, 0, 0), pParentWnd, nID))
@@ -60,6 +60,6 @@ BOOL CColorBlockBar::Create(CWnd* pParentWnd, UINT nID)
 }
 
 
-BEGIN_MESSAGE_MAP(CColorBlockBar, CTreeCtrl)
+BEGIN_MESSAGE_MAP(XUserBar, CTreeCtrl)
 END_MESSAGE_MAP()
 

@@ -294,6 +294,11 @@ void CMainFrame::ActivateCategory (CBCGPRibbonCategory* pCategory)
 		nShortcut = 7;
 		mode = e_ModeColorBlock;
 	}
+    else if (pCategory == m_pRibbonCategory[e_modeUser])
+    {
+        nShortcut = 8;
+        mode = e_modeUser;
+    }
 
 	ASSERT (mode != e_ModeUndefined);
 
@@ -361,6 +366,7 @@ BOOL CMainFrame::CreateRibbonBar ()
 	m_pRibbonCategory[e_ModeGantt] = AddTab_Gantt ();
     m_pRibbonCategory[e_ModeCustomer] = AddTab_Customer ();
 	m_pRibbonCategory[e_ModeColorBlock] = AddTab_ColorBlock ();
+    m_pRibbonCategory[e_modeUser] = AddTab_User();
     
 /*
 	//------------------
@@ -990,6 +996,24 @@ CBCGPRibbonCategory* CMainFrame::AddTab_ColorBlock ()
 	pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_EXPORT, _T("导出"), 4, 4));
 
 	return pCategory;
+}
+
+CBCGPRibbonCategory* CMainFrame::AddTab_User()
+{
+    CBCGPRibbonCategory* pCategory = m_wndRibbonBar.AddCategory (
+        c_ViewNames[e_modeUser], IDB_MAIL_SMALL, IDB_MAIL_LARGE);
+    pCategory->SetKeys (_T("l"));
+
+    CBCGPRibbonPanel* pPanelActions = pCategory->AddPanel (_T("编辑"), m_PanelImages.ExtractIcon (2));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_NEW, _T("新建"), 0, 0));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_REMOVE, _T("删除"), 1, 1));
+    pPanelActions->Add (new CBCGPRibbonButton (ID_RIBBON_FIND, _T("查找"), 2, 2));
+
+    CBCGPRibbonPanel* pPanelNames = pCategory->AddPanel (_T("导入/导出"), m_PanelImages.ExtractIcon (3));
+    pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_IMPORT, _T("导入"), 3, 3));
+    pPanelNames->Add (new CBCGPRibbonButton (ID_RIBBON_EXPORT, _T("导出"), 4, 4));
+
+    return pCategory;
 }
 
 void CMainFrame::OnBeforeChangeVisualTheme(CBCGPWinApp::BCGP_VISUAL_THEME theme)

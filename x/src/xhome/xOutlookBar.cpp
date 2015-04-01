@@ -158,7 +158,13 @@ BOOL COutlookBar::Create (LPCTSTR lpszCaption, CWnd* pParentWnd,
 		return FALSE;      // fail to create
 	}
 	pShortcutsBarContainer->AddTab (&m_wndColorBlockBar, c_ViewNames[e_ModeColorBlock], 1, FALSE);
-	
+
+    if (!m_wndUserBar.Create (this, IDC_USER_BAR))
+    {
+        TRACE0("Failed to create user tab\n");
+        return FALSE;      // fail to create
+    }
+    pShortcutsBarContainer->AddTab (&m_wndUserBar, c_ViewNames[e_modeUser], 1, FALSE);
 
 	SetButtonsFont (&globalData.fontBold);
 	EnableSetCaptionTextToTabName (TRUE);

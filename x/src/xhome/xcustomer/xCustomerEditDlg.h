@@ -9,7 +9,7 @@ class XCustomerEditDlg : public CBCGPDialog
 	DECLARE_DYNAMIC(XCustomerEditDlg)
 
 public:
-	XCustomerEditDlg(const xCustomer& customer, bool bNew, CWnd* pParent = NULL);   // 标准构造函数
+	XCustomerEditDlg(xCustomer& customer, bool bNew, CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~XCustomerEditDlg();
 
 // 对话框数据
@@ -24,9 +24,8 @@ protected:
     void UpdateUI(BOOL bToUI);
 
 private:
-    xCustomer   m_Customer;
-    bool        m_bNewCustomer;
-    BOOL        m_bInitUI;
+    xCustomer&  m_customer;
+    bool        m_bNewC;
 
 public:
     CBCGPEdit m_editName;

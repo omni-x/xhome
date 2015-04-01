@@ -3,7 +3,8 @@
 #include "../xHomeDoc.h"
 #include "../xMainfrm.h"
 
-#include "xColorBlockView.h "
+#include "xColorPickerDlg.h"
+#include "XColorView.h "
 
 
 #ifdef _DEBUG
@@ -18,9 +19,9 @@ static char THIS_FILE[] = __FILE__;
 //////////////////////////////////////////////////////////////////////////
 // CCustomerView
 
-IMPLEMENT_DYNCREATE(XColorBlockView, CView)
+IMPLEMENT_DYNCREATE(XColorView, CView)
 
-BEGIN_MESSAGE_MAP(XColorBlockView, CView)
+BEGIN_MESSAGE_MAP(XColorView, CView)
 	ON_WM_ERASEBKGND()
 	ON_WM_CREATE()
 	ON_WM_DESTROY()
@@ -40,17 +41,17 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView construction/destruction
 
-XColorBlockView::XColorBlockView()
+XColorView::XColorView()
 {
 	m_bCalcPos = FALSE;
 	m_pHittest = NULL;
 }
 
-XColorBlockView::~XColorBlockView()
+XColorView::~XColorView()
 {
 }
 
-BOOL XColorBlockView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL XColorView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Modify the Window class CViewor styles here by modifying
 	//  the CREATESTRUCT cs
@@ -61,7 +62,7 @@ BOOL XColorBlockView::PreCreateWindow(CREATESTRUCT& cs)
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView drawing
 
-void XColorBlockView::OnDraw(CDC* pDC)
+void XColorView::OnDraw(CDC* pDC)
 {
 	if( m_bCalcPos )
 		CalcPos();
@@ -80,37 +81,37 @@ void XColorBlockView::OnDraw(CDC* pDC)
     memDC.SetBkMode(TRANSPARENT);
 	memDC.FillSolidRect(rtClient,RGB(255,255,255));
 
-	size_t iCount = m_arrColor.size();
+	size_t iCount = m_arrColorItem.size();
 	for(size_t i = 0; i < iCount ;i++)
 	{
-		ColorBlock* pBlock = m_arrColor[i];
-		
+		XColorItem* pBlock = m_arrColorItem[i];
+
 		if( pBlock->rtPos.top > rtClient.bottom || pBlock->rtPos.bottom < rtClient.top )
 			continue;
 
         CRect rtColor = pBlock->rtPos;
         rtColor.bottom -= BLOCK_TITLT_HEIGHT;
-		memDC.FillSolidRect(rtColor,pBlock->dwColor);
+		memDC.FillSolidRect(rtColor, pBlock->clrCard.rgb_);
 
         CRect rtText = rtColor;
         rtText.top = rtText.bottom;
         rtText.bottom = rtText.top + BLOCK_TITLT_HEIGHT;
         
         CString strText;
-        strText.Format(_T("%d"),pBlock->iID);
+        strText.Format(_T("%d"), pBlock->clrCard.card_);
         memDC.DrawText(strText,rtText,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
 
 		if( pBlock->dwState & ColorBlockState_Sel )
 		{
             CRect rtTemp = rtColor;
             rtTemp.InflateRect(2,2,2,2);
-            memDC.FillSolidRect(rtTemp,pBlock->dwColor);
+            memDC.FillSolidRect(rtTemp, pBlock->clrCard.rgb_);
         }
 		else if( pBlock->dwState & ColorBlockState_Over )
 		{
             CRect rtTemp = rtColor;
             rtTemp.InflateRect(2,2,2,2);
-            memDC.FillSolidRect(rtTemp,pBlock->dwColor);
+            memDC.FillSolidRect(rtTemp, pBlock->clrCard.rgb_);
 		}
 	}
 
@@ -126,12 +127,12 @@ void XColorBlockView::OnDraw(CDC* pDC)
 /////////////////////////////////////////////////////////////////////////////
 // CCustomerView printing
 
-void XColorBlockView::OnFilePrintPreview() 
+void XColorView::OnFilePrintPreview() 
 {
 	BCGPPrintPreview (this);
 }
 
-BOOL XColorBlockView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL XColorView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 #ifdef _BCGSUITE_INC_
 	return DoPreparePrinting(pInfo);
@@ -144,17 +145,17 @@ BOOL XColorBlockView::OnPreparePrinting(CPrintInfo* pInfo)
 // CCustomerView diagnostics
 
 #ifdef _DEBUG
-void XColorBlockView::AssertValid() const
+void XColorView::AssertValid() const
 {
 	CView::AssertValid();
 }
 
-void XColorBlockView::Dump(CDumpContext& dc) const
+void XColorView::Dump(CDumpContext& dc) const
 {
 	CView::Dump(dc);
 }
 
-XHomeDoc* XColorBlockView::GetDocument() // non-debug version is inline
+XHomeDoc* XColorView::GetDocument() // non-debug version is inline
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(XHomeDoc)));
 	return (XHomeDoc*)m_pDocument;
@@ -162,28 +163,28 @@ XHomeDoc* XColorBlockView::GetDocument() // non-debug version is inline
 #endif //_DEBUG
 
 
-void XColorBlockView::OnInitialUpdate() 
+void XColorView::OnInitialUpdate() 
 {
 	CView::OnInitialUpdate();
 }
 
 
 
-int XColorBlockView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+int XColorView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CView::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
     // temp
 	{
-		for(int i = 0; i < 100; i++)
-		{
-			ColorBlock* pTemp = new ColorBlock;
-			pTemp->iID = i;
-			pTemp->dwColor = RGB(i*5%255,i*15%255,i*25%255);
-
-			m_arrColor.push_back(pTemp);
-		}
+// 		for(int i = 0; i < 100; i++)
+// 		{
+// 			ColorBlock* pTemp = new ColorBlock;
+// 			pTemp->iID = i;
+// 			pTemp->dwColor = RGB(i*5%255,i*15%255,i*25%255);
+// 
+// 			m_arrColor.push_back(pTemp);
+// 		}
 		m_bCalcPos = TRUE;
 	}
 	
@@ -191,16 +192,16 @@ int XColorBlockView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void XColorBlockView::OnDestroy() 
+void XColorView::OnDestroy() 
 {
 	
 
 	CView::OnDestroy();
 }
 
-void XColorBlockView::OnMouseMove(UINT nFlags, CPoint point)
+void XColorView::OnMouseMove(UINT nFlags, CPoint point)
 {
-	ColorBlock* pHit = Hittest(point);
+	XColorItem* pHit = Hittest(point);
 	if( pHit != NULL && m_pHittest != pHit )
 	{
 		if( m_pHittest != NULL )
@@ -214,10 +215,10 @@ void XColorBlockView::OnMouseMove(UINT nFlags, CPoint point)
 	CView::OnMouseMove(nFlags,point);
 }
 
-void XColorBlockView::OnLButtonDown(UINT nFlags, CPoint point)
+void XColorView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	ColorBlockArray::iterator itor = m_arrColor.begin();
-	while(itor != m_arrColor.end())
+	XColorItemArray::iterator itor = m_arrColorItem.begin();
+	while(itor != m_arrColorItem.end())
 	{
 		(*itor)->dwState &= ~ColorBlockState_Sel;
 		itor++;
@@ -227,9 +228,9 @@ void XColorBlockView::OnLButtonDown(UINT nFlags, CPoint point)
 	CView::OnLButtonDown(nFlags,point);
 }
 
-void XColorBlockView::OnLButtonUp(UINT nFlags, CPoint point)
+void XColorView::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	ColorBlock* pHit = Hittest(point);
+	XColorItem* pHit = Hittest(point);
 	if( pHit != NULL  )
 	{
 		pHit->dwState |= ColorBlockState_Sel;
@@ -241,9 +242,9 @@ void XColorBlockView::OnLButtonUp(UINT nFlags, CPoint point)
 	CView::OnLButtonUp(nFlags,point);
 }
 
-void XColorBlockView::OnLButtonDblClk(UINT nFlags, CPoint point)
+void XColorView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
-    ColorBlock* pHit = Hittest(point);
+    XColorItem* pHit = Hittest(point);
     if( pHit != NULL  )
     {
         pHit->dwState |= ColorBlockState_Sel;
@@ -256,13 +257,13 @@ void XColorBlockView::OnLButtonDblClk(UINT nFlags, CPoint point)
     CView::OnLButtonDblClk(nFlags,point);
 }
 
-LRESULT XColorBlockView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT XColorView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	
 	return CView::WindowProc(message,wParam,lParam);
 }
 
-BOOL XColorBlockView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
+BOOL XColorView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
 {
 	NMHDR* pNMHDR = (NMHDR*)(lParam);
 	if (pNMHDR != NULL && pNMHDR->code == BCGPGN_SELCHANGED)
@@ -274,7 +275,7 @@ BOOL XColorBlockView::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 	return CView::OnNotify(wParam, lParam, pResult);
 }
 
-void XColorBlockView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
+void XColorView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView) 
 {
 	CView::OnActivateView(bActivate, pActivateView, pDeactiveView);
 
@@ -284,52 +285,61 @@ void XColorBlockView::OnActivateView(BOOL bActivate, CView* pActivateView, CView
 	}
 }
 
-void XColorBlockView::OnClickBlock(ColorBlock* pBlock)
+void XColorView::OnClickBlock(XColorItem* pItem)
 {
-    UNREFERENCED_PARAMETER(pBlock);
+    UNREFERENCED_PARAMETER(pItem);
 }
 
-void XColorBlockView::OnDBClickBlock(ColorBlock* pBlock)
+void XColorView::OnDBClickBlock(XColorItem* pItem)
 {
-    UNREFERENCED_PARAMETER(pBlock);
+    UNREFERENCED_PARAMETER(pItem);
 }
 
-void XColorBlockView::OnNew()
+void XColorView::OnNew()
+{
+    xColorCard clrCard;
+    XColorPickerDlg clrPickerDlg(clrCard);
+    if (IDOK == clrPickerDlg.DoModal())
+    {
+        XShop* shop = theApp.curShop();
+        if ( shop->addColor(clrCard.card_, "", clrCard.rgb_ ) )
+        {
+            Add(clrCard.id_, clrCard.card_, clrCard.rgb_);
+            return;
+        }
+    }
+}
+
+void XColorView::OnDel()
 {
 
 }
 
-void XColorBlockView::OnDel()
-{
-
-}
-
-void XColorBlockView::OnFind()
+void XColorView::OnFind()
 {
 	AfxMessageBox("OnFind");
 }
 
-void XColorBlockView::OnImport()
+void XColorView::OnImport()
 {
 	AfxMessageBox("OnImport");
 }
 
-void XColorBlockView::OnExport()
+void XColorView::OnExport()
 {
 	AfxMessageBox("OnExport");
 }
 
-ColorBlock* XColorBlockView::Add(unsigned int iID,DWORD dwColor)
+XColorItem* XColorView::Add(int id, unsigned int card, DWORD dwColor)
 {
-	ColorBlock* pTemp = Find(iID);
+	XColorItem* pTemp = Find(card);
 	if( pTemp == NULL )
 	{
-		pTemp = new ColorBlock;
-		pTemp->iID = iID;
-		pTemp->dwColor = dwColor;
-
-		m_arrColor.push_back(pTemp);
-
+		pTemp = new XColorItem;
+        pTemp->clrCard.id_ = id;
+		pTemp->clrCard.card_ = card;
+		pTemp->clrCard.rgb_  = dwColor;
+		m_arrColorItem.push_back(pTemp);
 		m_bCalcPos = TRUE;
 		return pTemp;
 	}
@@ -337,25 +347,24 @@ ColorBlock* XColorBlockView::Add(unsigned int iID,DWORD dwColor)
 	{
 		if(IDYES == AfxMessageBox(_T("已经存在，是否覆盖？"),MB_YESNO))
 		{
-			pTemp->dwColor = dwColor;
+			pTemp->clrCard.rgb_ = dwColor;
 		}
-
 		return pTemp;
 	}
 }
 
-BOOL XColorBlockView::Del(unsigned int iID)
+BOOL XColorView::Del(unsigned int card)
 {
-	ColorBlockArray::iterator itor = m_arrColor.begin();
-	while(itor != m_arrColor.end())
+	XColorItemArray::iterator itor = m_arrColorItem.begin();
+	while(itor != m_arrColorItem.end())
 	{
-		if((*itor)->iID == iID )
+		if((*itor)->clrCard.card_ == card )
 		{
-			ColorBlock* pColor = *itor;
-			if( pColor == m_pHittest )
+			XColorItem* pItem = *itor;
+			if( pItem == m_pHittest )
 				m_pHittest = NULL;
 
-			delete pColor;
+			delete pItem;
 
 			m_bCalcPos = TRUE;
 			return TRUE;
@@ -367,28 +376,28 @@ BOOL XColorBlockView::Del(unsigned int iID)
 	return FALSE;
 }
 
-void XColorBlockView::Clear()
+void XColorView::Clear()
 {
-	ColorBlockArray::iterator itor = m_arrColor.begin();
-	while(itor != m_arrColor.end())
+	XColorItemArray::iterator itor = m_arrColorItem.begin();
+	while(itor != m_arrColorItem.end())
 	{
-		ColorBlock* pColor = *itor;
+		XColorItem* pColor = *itor;
 		delete pColor;
 
 		itor++;
 	}
 
-	m_arrColor.clear();
+	m_arrColorItem.clear();
 	m_bCalcPos = TRUE;
 	m_pHittest = NULL;
 }
 
-ColorBlock* XColorBlockView::Find(unsigned int iID)
+XColorItem* XColorView::Find(unsigned int card)
 {
-	ColorBlockArray::iterator itor = m_arrColor.begin();
-	while(itor != m_arrColor.end())
+	XColorItemArray::iterator itor = m_arrColorItem.begin();
+	while(itor != m_arrColorItem.end())
 	{
-		if((*itor)->iID == iID )
+		if((*itor)->clrCard.card_ == card )
 			return (*itor);
 
 		itor++;
@@ -397,10 +406,10 @@ ColorBlock* XColorBlockView::Find(unsigned int iID)
 	return NULL;
 }
 
-ColorBlock* XColorBlockView::GetCurSel()
+XColorItem* XColorView::GetCurSel()
 {
-    ColorBlockArray::iterator itor = m_arrColor.begin();
-    while(itor != m_arrColor.end())
+    XColorItemArray::iterator itor = m_arrColorItem.begin();
+    while(itor != m_arrColorItem.end())
     {
         if((*itor)->dwState & ColorBlockState_Sel )
             return (*itor);
@@ -411,7 +420,7 @@ ColorBlock* XColorBlockView::GetCurSel()
     return NULL;
 }
 
-void XColorBlockView::CalcPos()
+void XColorView::CalcPos()
 {
 	if( !m_bCalcPos )
 		return;
@@ -429,10 +438,10 @@ void XColorBlockView::CalcPos()
 	CRect rtTemp = rtClient;
 	rtTemp.bottom = rtTemp.top + BLOCK_HEIGHT;
 	rtTemp.right = rtTemp.left - iSpace;
-	size_t iCount = m_arrColor.size();
+	size_t iCount = m_arrColorItem.size();
 	for(size_t i = 0; i < iCount ;i++)
 	{
-		ColorBlock* pBlock = m_arrColor[i];
+		XColorItem* pBlock = m_arrColorItem[i];
 
 		rtTemp.left = rtTemp.right + iSpace;
 		rtTemp.right = rtTemp.left + BLOCK_WIDTH;
@@ -468,10 +477,10 @@ void XColorBlockView::CalcPos()
 	}
 }
 
-ColorBlock* XColorBlockView::Hittest(CPoint point)
+XColorItem* XColorView::Hittest(CPoint point)
 {
-	ColorBlockArray::iterator itor = m_arrColor.begin();
-	while(itor != m_arrColor.end())
+	XColorItemArray::iterator itor = m_arrColorItem.begin();
+	while(itor != m_arrColorItem.end())
 	{
 		if(((*itor)->rtPos).PtInRect(point) )
 			return (*itor);
@@ -482,7 +491,7 @@ ColorBlock* XColorBlockView::Hittest(CPoint point)
 	return NULL;
 }
 
-void XColorBlockView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+void XColorView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
 	CView::OnVScroll(nSBCode,nPos,pScrollBar);
 
@@ -545,13 +554,13 @@ void XColorBlockView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     Invalidate();
 }
 
-BOOL XColorBlockView::OnEraseBkgnd(CDC* pDC)
+BOOL XColorView::OnEraseBkgnd(CDC* pDC)
 {
     pDC->SetBkMode(TRANSPARENT);
     return TRUE;
 }
 
-BOOL XColorBlockView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+BOOL XColorView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
     if(zDelta<0)
         SendMessage(WM_VSCROLL,SB_PAGEDOWN,0);

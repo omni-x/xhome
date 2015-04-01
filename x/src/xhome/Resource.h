@@ -204,6 +204,7 @@
 #define IDD_DIALOG1                     287
 #define IDD_DIALOG_STORE                287
 #define IDD_X_DIALOG_STORE              287
+#define IDD_X_DIALOG_COLOR              288
 #define IDC_APP_EDIT_DATE_END           1041
 #define IDC_APP_EDIT_DATE_START         1042
 #define IDC_APP_EDIT_DATETIME_END_STATIC 1043
@@ -332,6 +333,9 @@
 #define ID_CANCEL                       1168
 #define IDC_EDIT_USER                   1170
 #define IDC_EDIT_PASSWORD               1171
+#define IDC_COLOR_PICKER                1172
+#define IDC_EDIT_NUM                    1173
+#define IDC_RGB                         1174
 #define ID_APP_EDIT_ALLDAY              32787
 #define ID_APP_EDIT_DELETE              32788
 #define ID_APP_EDIT_IMPORTANCE_HIGH     32789
@@ -559,9 +563,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        288
+#define _APS_NEXT_RESOURCE_VALUE        289
 #define _APS_NEXT_COMMAND_VALUE         32998
-#define _APS_NEXT_CONTROL_VALUE         1172
+#define _APS_NEXT_CONTROL_VALUE         1175
 #define _APS_NEXT_SYMED_VALUE           1244
 #endif
 #endif

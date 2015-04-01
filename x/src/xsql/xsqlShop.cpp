@@ -23,10 +23,12 @@ XSqlShop::XSqlShop(const std::string& file) : file_(file)
     color_ = new XSqlColor(sqlite_);
     order_ = new XSqlOrder(sqlite_);
     material_ = new XSqlMaterial(sqlite_);
+    customer_ = new XSqlCustomer(sqlite_);
 }
 
 XSqlShop::~XSqlShop()
 {
+    SAFE_DELETE(customer_);
     SAFE_DELETE(material_);
     SAFE_DELETE(user_);
     SAFE_DELETE(color_);

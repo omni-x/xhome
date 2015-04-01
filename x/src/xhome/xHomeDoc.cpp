@@ -14,8 +14,9 @@
 #include "Views/MacrosEditView.h"
 #include "Views/GanttView.h"
 
-#include "./Customer/xCustomerView.h"
-#include "./xshop/xColorBlockView.h"
+#include "./xcustomer/xCustomerView.h"
+#include "./xshop/xColorView.h"
+#include "./xuser/xUserView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -193,7 +194,8 @@ BOOL XHomeDoc::CreateViews(CFrameWnd* pFrameWnd, CCreateContext* pContext)
         RUNTIME_CLASS(CMacrosEditView),
 		RUNTIME_CLASS(CGanttView),
         RUNTIME_CLASS(XCustomerView),
-		RUNTIME_CLASS(XColorBlockView)
+		RUNTIME_CLASS(XColorView),
+        RUNTIME_CLASS(XUserView),
     };
 
     CCreateContext context = *pContext;

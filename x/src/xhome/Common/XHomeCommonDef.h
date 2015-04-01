@@ -12,10 +12,11 @@ enum XMode
     e_ModeGantt		= 5,
     e_ModeCustomer  = 6,
 	e_ModeColorBlock= 7,
-    e_ModeMax       = 8,
+    e_modeUser      = 8, 
+    e_ModeMax       = 9,
 };
 
-const int c_ViewCount = 8;
+const int c_ViewCount = 9;
 const LPCTSTR c_ViewNames[c_ViewCount] =
 {
     _T("Home"), 
@@ -24,8 +25,9 @@ const LPCTSTR c_ViewNames[c_ViewCount] =
     _T("Tasks"),
     _T("Macros"),
     _T("Gantt"),
-    _T("联系人"),
-	_T("色块")
+    _T("客户"),
+	_T("色块"), 
+    _T("操作员")
 };
 const LPCTSTR c_ViewDescription[c_ViewCount] =
 {
@@ -35,8 +37,9 @@ const LPCTSTR c_ViewDescription[c_ViewCount] =
     _T("This view demonstrates usage of Database Grid control in read-only mode. You can organize the structure by using \"Field Chooser\" and \"Group By Box\"."),
     _T("This view demonstrates advanced Edit control that can be used in development environments. In addition, you can see how to use Office 2007-style mini-toolbar (\"floaty\") in order to manipulate selected text. You can see IntelliSense in action by typing \"System.\", \"Drawing.\" or \"IO.\" (case-sensitive!)"),
     _T("This view demonstrates Gantt control."),
-    _T("This view demonstrates Gantt control."),
-	_T("This view demonstrates Gantt control.")
+    _T("This view demonstrates Customer control."),
+	_T("This view demonstrates Color control."), 
+    _T("当前视图显示的是操作员！")
 };
 
 const int c_CategoryCount = 6;
@@ -77,16 +80,15 @@ const COLORREF c_ShowasColors[c_ShowasCount] =
 
 enum
 {
-    ID_RIBBON_NEW = 40000,        //新建
-    ID_RIBBON_REMOVE ,            //删除
-    ID_RIBBON_FIND ,              //查找
-    ID_RIBBON_IMPORT ,            //导入
-    ID_RIBBON_EXPORT ,            //导出
+    ID_RIBBON_NEW = 40000,      //新建
+    ID_RIBBON_REMOVE ,          //删除
+    ID_RIBBON_FIND ,            //查找
+    ID_RIBBON_IMPORT ,          //导入
+    ID_RIBBON_EXPORT ,          //导出
 
-    IDC_CUSTOMER_BAR,               //联系人OutlookBar
-    IDC_COLORBLOCK_BAR,				//色块OutlookBar
-    
-
+    IDC_CUSTOMER_BAR,           //联系人
+    IDC_COLORBLOCK_BAR,         //色块
+    IDC_USER_BAR,               //用户   
 };
 
 #endif

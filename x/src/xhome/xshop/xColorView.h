@@ -1,5 +1,5 @@
-#ifndef _XColorBlockView_H__
-#define _XColorBlockView_H__
+#ifndef _XColorView_H__
+#define _XColorView_H__
 
 #if _MSC_VER > 1000
 #pragma once
@@ -9,27 +9,24 @@
 #define ColorBlockState_Sel   0x00000001
 #define ColorBlockState_Over  0x00000002
 
-struct ColorBlock
+struct XColorItem
 {
-	unsigned int iID;
-	DWORD		 dwColor;
-
-	CRect		 rtPos;
-	DWORD		 dwState;
-
-	ColorBlock()
+    xColorCard      clrCard;
+	CRect		    rtPos;
+	DWORD		    dwState;
+    XColorItem()
 	{
 		dwState = ColorBlockState_Nor;
 	}
 };
 
-typedef std::vector<ColorBlock*> ColorBlockArray;
+typedef std::vector<XColorItem*> XColorItemArray;
 
-class XColorBlockView : public CView
+class XColorView : public CView
 {
 protected: // create from serialization only
-	XColorBlockView();
-	DECLARE_DYNCREATE(XColorBlockView)
+	XColorView();
+	DECLARE_DYNCREATE(XColorView)
 
 	// Attributes
 public:
@@ -55,12 +52,12 @@ protected:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 protected:
-    void         OnClickBlock(ColorBlock* pBlock);
-    void         OnDBClickBlock(ColorBlock* pBlock);
+    void         OnClickBlock(XColorItem* pItem);
+    void         OnDBClickBlock(XColorItem* pItem);
 
 	// Implementation
 public:
-	virtual ~XColorBlockView();
+	virtual ~XColorView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -78,23 +75,23 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
-	ColorBlock*			Add(unsigned int iID,DWORD dwColor);
-	BOOL				Del(unsigned int iID);
+	XColorItem*			Add(int id, unsigned int card, DWORD dwColor);
+	BOOL				Del(unsigned int card);
 	void				Clear();
-	ColorBlock*			Find(unsigned int iID);
-    ColorBlock*         GetCurSel();
+	XColorItem*			Find(unsigned int card);
+    XColorItem*         GetCurSel();
 
 protected:
 	void				CalcPos();
-	ColorBlock*			Hittest(CPoint point);
+	XColorItem*			Hittest(CPoint point);
 protected:
-	ColorBlockArray		m_arrColor;
+	XColorItemArray		m_arrColorItem;
 	BOOL				m_bCalcPos;
-	ColorBlock*			m_pHittest;
+	XColorItem*			m_pHittest;
 };
 
 #ifndef _DEBUG  
-inline XHomeDoc* XColorBlockView::GetDocument()
+inline XHomeDoc* XColorView::GetDocument()
 { return (XHomeDoc*)m_pDocument; }
 #endif
 

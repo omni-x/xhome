@@ -13,7 +13,7 @@ public:
     XSqlColor(CppSQLite3DB* sqlite);
     ~XSqlColor();
 
-    bool addColor(const xColorCard& color);
+    bool addColor(xColorCard& color);
     bool delColor(unsigned int card);
     bool modifyColor(const xColorCard& color);
     bool queryColor(lpxColorCardArray& arrColor);

@@ -3205,43 +3205,43 @@
 			Name="xcustomer"
 			>
 			<File
-				RelativePath=".\Customer\xCustomerBar.cpp"
+				RelativePath=".\xcustomer\xCustomerBar.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerBar.h"
+				RelativePath=".\xcustomer\xCustomerBar.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerEditDlg.cpp"
+				RelativePath=".\xcustomer\xCustomerEditDlg.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerEditDlg.h"
+				RelativePath=".\xcustomer\xCustomerEditDlg.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerMgr.cpp"
+				RelativePath=".\xcustomer\xCustomerMgr.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerMgr.h"
+				RelativePath=".\xcustomer\xCustomerMgr.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerReportCtrl.cpp"
+				RelativePath=".\xcustomer\xCustomerReportCtrl.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerReportCtrl.h"
+				RelativePath=".\xcustomer\xCustomerReportCtrl.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerView.cpp"
+				RelativePath=".\xcustomer\xCustomerView.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Customer\xCustomerView.h"
+				RelativePath=".\xcustomer\xCustomerView.h"
 				>
 			</File>
 		</Filter>
@@ -3277,11 +3277,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\xshop\xColorBlockView.cpp"
+				RelativePath=".\xshop\xColorPickerDlg.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\xshop\xColorBlockView.h"
+				RelativePath=".\xshop\xColorPickerDlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xColorView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xshop\xColorView.h"
 				>
 			</File>
 			<File
@@ -3290,6 +3298,34 @@
 			</File>
 			<File
 				RelativePath=".\xshop\xNewShopDlg.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="xuser"
+			>
+			<File
+				RelativePath=".\xuser\xUserBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xuser\xUserBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xuser\xUserReportCtrl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xuser\xUserReportCtrl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\xuser\xUserView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\xuser\xUserView.h"
 				>
 			</File>
 		</Filter>
@@ -3326,19 +3362,19 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Mail\buttons.png"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Planner\buttons.png"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Mail\file_large.png"
+			RelativePath=".\res\Mail\buttons.png"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Planner\file_large.png"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Mail\file_large.png"
 			>
 		</File>
 		<File
@@ -3395,5 +3431,9 @@
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="xHome.rc"
+		/>
 	</Globals>
 </VisualStudioProject>

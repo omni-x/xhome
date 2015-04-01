@@ -16,8 +16,16 @@
 
 #define X_SQL_CUSTOMER_CREATE       \
     "create table customer( id integer primary key autoincrement, name nvarchar(32), tel nvarchar(32), qq nvarchar(32))"
+#define X_SQL_CUSTOMER_QUERY_XXX        \
+    "select * from customer where name='%s'"
 #define X_SQL_CUSTOMER_INSERT_XXX   \
     "insert into customer(name, tel, qq) values('%s', '%s', '%s')"
+#define X_SQL_CUSTOMER_DELETE_NAME       \
+    "delete from customer where name='%s'"
+#define X_SQL_CUSTOMER_QUERY_ALL   \
+    "select * from customer"
+#define X_SQL_CUSTOMER_QUERY_NAME       \
+    "select * from customer where name='%s'"
 
 #define X_SQL_CUSTOMERGROUP_CREATE  \
     "create table customergroup( id integer primary key autoincrement, name nvarchar(32))"

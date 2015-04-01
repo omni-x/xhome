@@ -65,9 +65,10 @@ protected:
 protected:
     void    InitGridCtrl();
     void    FillData();
+    void    FillData(const xCustomer& customer, BOOL bRedraw = TRUE);
 
 protected:
-    CCustomerMgr* m_pMgr;
+    lpxCustomerArray m_arrCustomer;
 };
 
 #ifndef _DEBUG  
